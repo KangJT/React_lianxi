@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const initArray = (m, n) => {
+        //     let arr = new Array(m);
+        //     arr.fill(n);
+        //     console.log(arr);
+        // }
+        // initArray(5, '5')
+        function createArr(length, content) {
+            console.log(Array(length).fill(content));
+            console.log(Array.from({
+                length
+            }, () => {
+                return content;
+            }))
+        }
+        createArr(10, 'aa')
+    </script>
+</body>
+
+</html>

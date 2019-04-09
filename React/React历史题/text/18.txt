@@ -1,0 +1,126 @@
+1  在es6z中class类的构造函数是通过______来表示
+    constructor
+2  Array.from([2，4，6], (x) => x * x)执行这段代码最后得到的结果是（）
+    [4，16，36]
+3  Array.of()输出的结果是____
+     []
+4  promise中接收一个数组将多个promise包装成一个新的promise实例的方法是____
+    promise.all()
+5  <input type="text" value="{this.state.val}" onChange={(e)=>{ this.setState({val: ______________}) }} />	 e.target.value
+6  类数组对象转化为数组可以使用下面那个方法
+   A  Array.from()
+   B  ...
+   C  Array.of()
+   D  Array.entries()	 A
+7  在react将react组件渲染成dom需要通过________模块提供的 render方法
+   A  react-dom
+   B  render	
+   C  components
+   D  component	 A
+8  componentDidMount生命周期说法不正确的有？	
+   A  真实的DOM被渲染出来后调用	
+   B  可以访问真实的dom	
+   C  在服务端中，该方法不会被调用
+   D  真实dom渲染之前调用   D
+9  关于es6中的对象解构赋值说法错误的是？
+   A   解构赋值要求等号右边是一个对象，所以如果等号右边是undefined或null，就会报错，因为它们无法转为对象 
+   B  ..进行解构赋值必须是最后一个参数，否则会报错。 	
+   C   解构赋值的拷贝是浅拷贝，如果一个键的值是复合类型的值（数组、对象、函数）、那么解构赋值拷贝的是这个值的引用，而不是这个值的副本 	
+   D  解构赋值会拷贝继承自原型对象的属性	  D
+10  对与react中的proptypes验证描述正确的是？	
+   A  可以检测任意类型	
+   B  如果父组件没有传递props，proptypes检测会发生在defaultprops之后	
+   C  如果父组件没有传递props，proptypes检测会发生在defaultprops之前	
+   D  只能验证字符串类型			B
+11  react中proptypes检测是否为一个元素使用什么方法？
+   A  PropTypes.element	
+   B  PropTypes.text	
+   C  PropTypes.nodes 
+   D  PropTypes.el 	 A
+12  下面能使组件调用自身的render()方法重新渲染组件的方法是？	
+   A  forceUpdate	
+   B  update	
+   C  beforeupdate	
+   D  afterupdate	 A
+13  this._change = this._change.bind(this);这句话描述正确的是？	
+   A  改变_change方法的this并且执行它
+   B  返回一个新的绑定了this的_change函数，不会执行	
+   C  执行_change函数	
+   D  没有意义替换了原来的_change方法	 B
+14  proptypes能检测的类型有？	
+   A  array	
+  B  Object	
+  C  Function	
+   D  String   ABCD
+15  react组件分为哪些周期？
+   A  存在期	
+   B  销毁期	
+   C  更改期	
+   D  实例期   ABD
+16  constructor方法不是类的默认方法，不能通过new命令生成对象实例时，自动调用该方法	B
+17  async函数内部return语句返回的值，会成为then方法回调函数的参数，没有return则没用返回值		A
+18  async函数返回是个函数	B
+19  await命令可以用在普通函数上   B
+20  在react中组件需要通过继承React.Component来实现   A
+21  react组件中如果要渲染一个组件的话render函数的返回值是__________  
+    虚拟dom
+22  在es6里面继承是通过____________关键字实现的 
+   extends
+23  react受控组件中select元素默认选中是通过___________控制的
+    根select元素的value值
+24  在class声明的类中生命静态属性是通过__________  
+    static myStaticProp = 42;
+25  class声明的对象中构造函数是使用________________表示 
+    constructor
+26  react中受控组件的实现是通过什么实现的
+   A  ref回调函数绑定dom
+   B  refs获取绑定的dom
+   C  vlaue的值为state的状态，使用change事件同步状态	
+   D  data			C
+27  在redux中通过什么方法将组件和redux连接起来
+   A  connect()
+   B  creatStore()	
+   C  creat()	
+   D  context()	 A
+28  "下面那种改变state的方法是对的
+   A  this.state.age = 00
+   B  state.age = 00	
+   C  this.setState(age: 00)	
+   D  this.setState({age: 00})	 D
+29  react中的生命周期分为几个阶段  
+  A  1	B  2	C  3	D 4 	C
+30  react中子组件获取父组件的数据需要通过 
+  A  props	
+   B  state	
+   C  data	
+   D  回调函数   A
+31 jsx元素上事件处理使用的是
+   A  dom0级事件	
+   B  dom2级事件	
+   C  react合成事件	
+   D  dom1级事件	 C
+32  在react中组件扩展通常使用什么技术？	
+   A  高阶组件	
+   B  受控组件	
+   C  展示组件	
+   D  容器组件  A
+33  在react中负责管理数据的组件是什么？	
+   A  高阶组件	
+   B  受控组件	
+   c  展示组件	
+   d  容器组件  D
+34  react中下面哪些生命周期不能改变state   
+   A  render	
+   B  componentDidMount	
+   C  shouldComponentUpdate	
+   D  componentWillUpdate	 ACD
+35  redux中action应用正确的是 
+   A  action是一个对象
+   B  action中必须存在type属性	
+   C  action中必须存在data属性	
+   D  可以通过函数返回			ABD
+36 react无法使用指令绑定事件   A
+37  react中可以通过函数创建组件，函数创建的组件是一个组件实例  	B
+38  react中props是不可以改变的   A
+39  react中jsx会最终被编译成虚拟dom 	A
+40  react中可以使用keep-alive组件做缓存处理   B

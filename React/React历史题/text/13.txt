@@ -1,0 +1,124 @@
+1  React的性能瓶颈主要出现在生成______及_______算法的过程	
+     DOM, DOM Diff
+2  提高性能可以在________________阶段判断，如果属性及状态与上一次相同，这个时候很明显UI不会变化，也不需要执行后续生成DOM，DOM Diff的过程了				      shouldComponentUpdate
+3  针对列表遍历类型，遍历时候增加_______属性值，对子组件进行唯一性识别。 
+     唯一 key 
+4   shouldComponentUpdate函数的返回值是_____________类型  	
+    布尔
+5  react中针对组件优化组要使用________和_____________  
+    PureRender,  List and Key
+6   react中使用什么技术保证高速的UI渲染  
+   A  虚拟DOM	
+   B  单向数据流
+   C  双向绑定
+   D MVC设计模式  A
+7 在react中使用了什么让它数据绑定更加清晰明确
+   A  虚拟DOM	
+   B  单向数据流	
+   C  双向绑定	
+   D  MVC设计模式   B
+8 "在react中针对列表遍历类型的渲染，通过什么方法可以提高 DOM Diff 的效率
+   A  shouldComponentUpdate
+   B  添加key	
+   C  DOM
+   D  添加Id   B
+9  react中一个react元素定义了ref可以通过什么获取 
+   A  refs
+   B  ref
+   C  $ref
+   D  $refs	 A
+10 在路由对应的组件内部的组件如果要获取 location属性则需要  
+   A  withRouter()
+   B  history()	
+   C  location()
+   D  match()   A
+11 组件渲染方式有两种初始渲染和更新渲染，而我们需要优化的地方是
+   A  初始化渲染
+   B  初始化数据
+   C  更新渲染	
+   D  更新后逻辑  C
+12  组件更新生命周期中必调用shouldComponentUpdate,这个什么周期描述正确的是
+   A  返回一个布尔值，返回true确定渲染
+   B  返回一个布尔值，返回true确定不渲染
+   C  返回一个布尔值，返回false确定渲染
+   D  返回一个布尔值，返回一个虚拟dom	 A
+13 在组件更新期优化的话主要是优化哪个生命周期
+   A  shouldComponentUpdate
+   B  componentWillUpdate
+   C  componentDidMount
+   D  componentWillReceiveProps   A
+14 react的优化方法有 
+   A  组件执行 shouldComponentUpdate 方法，自行决定是否更新
+   B  给列表中的组件添加key属性	
+   C  使用PureRenderMixin
+   D  组件执行 componentWillReceiveProps 方法，自行决定是否更新	   ABC
+15 下面关于reactk框架描述正确的是 
+   A  React中父组件更新默认触发所有子组件更新
+   B  React不直接操作DOM
+   C  使用虚拟DOM
+   D  使用单向数据流	 ABCD
+16 react性能不需要优化，特别好    B
+17 react中shouldComponentUpdate提前于DOM Diff执行    A
+18 react中虚拟dom是在shouldComponentUpdate之后生成的   A
+19 在react中组件更新会将当前组件整个dom重新渲染	 B
+20 react的render方法返回的是一个虚拟dom   A
+21 react的新版本中可以继承________________基础类达到组件优化效果    React.PureComponent
+22 react利用_______来识别组件，它是一种身份标识标识	  key
+23 每个key对应一个组件，相同的key react认为是________	同一个组件
+24 react中dom是根据_______映射出来的	 虚拟dom
+25 react你不能直接去操作DOM来改变UI，你只能通过改变________和_________来驱动UI的变化。   state, props
+26 对于网页来说性能消耗最大的是什么操作？
+   A  dom操作
+   B  事件委托
+   C  bom操作
+   D  异步操作  A
+27 PureRender的原理是什么？
+   A  浅比较
+   B  深比较
+   C  不比较
+   D  对象拷贝  A
+28 Immutable Data的描述正确的是？
+   A  一旦被创建，就可以随意更改的数据
+   B  一旦被创建，就不能更改的数据	
+   C  去除了重复数据的数据
+   D  通过对象深拷贝实现  B
+29 <Switch>描述正确的是？	
+   A  只渲染出第一个与当前访问地址匹配的 <Route> 或 <Redirect>	
+   B  判断函数	
+   C  可渲染多个与当前访问地址匹配的 <Route>
+   D  配合<case>使用   A
+30 在react组件渲染优化主要是优化？
+   A  初始化
+   B  更新期
+   C  销毁期
+   D  缓存期   B
+31 在React中，render执行的结果得到的是？
+   A  dom
+   B  虚拟dom	
+   C  字符串
+   D  数组	 B
+32 shouldComponentUpdate中接受的第一个参数是
+   A  this.props
+   B  this.state	
+   C  nextState
+   D  nextProps   D
+33 react中当父组件的状态state发生变化时子组件的表现是
+   A  重新渲染	
+   B  如果没有接收props就不会重新渲染
+   C  如果接收了props就会重新渲染	
+   D  如果props的值没有变化就不会重新渲染   A
+34 react中组件的优化有哪些方面？
+   A  使用函数创建组件	
+   B  优化shouldComponentUpdata
+   C  循环使用key
+   D  组件拆分 ABCD
+35 js中数据类型分为？
+   A  简单类型值
+   B  引用类型值
+   C  dom值	
+   D  bom值   AB
+36 react中组件已经做到极致优化，不需要在优化了	 B
+37 react中key是为了给组件添加唯一标识  	 A
+38 网页优化性能的瓶颈主要就在dom操作上    A
+39 react中通过虚拟dom映射出了真实的dom   A
+40 在做组件优化的时候主要就是在优化react的初始化话渲染  B

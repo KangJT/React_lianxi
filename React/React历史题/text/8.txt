@@ -1,0 +1,44 @@
+react中向子组件传递数据使用_________________  props
+react中通过_____________验证props值的类型   PropTypes
+react中声明props值的类型为string应该__________________________写   	 static propTypes = { optionalString: PropTypes.string, }
+从 React v15.5 开始 ，React.PropTypes 助手函数已被弃用，使用_____________代替 prop-types
+props数据的默认值使用_________________定义    defaultProps
+我们使用 PropTypes.string 验证props。当给 prop 传递了一个不正确的值时    显示一条警告	发生错误	暂停执行	强制转换为对的	A
+在class创建的组件上定义props类型使用  static defaultProps = {}	static propTypes = {}	state	data			B
+在react指定只传递一个子元素使用什么来验证 PropTypes.element.isRequired   PropTypes.any.isRequired  PropTypes.func.isRequired  PropTypes.element   A
+验证器的类型来自于那个模块 知识点： types	prop	prop-types	以上都不对     C
+PropTypes.oneOf(['News', 'Photos'])是用来验证   一个 React 元素。	声明 prop 是特定的值，类似于枚举	多种类型其中之一	任何东西都可以被渲染   B
+要检查组件的属性，你需要配置什么  propTypes 	props	data	scope	 A
+props验证数据可以是任何内容是用	PropTypes.node	PropTypes.element	PropTypes.symbol	PropTypes.string			A
+props使用什么方法指定   defaultProps	props	default	prop			A
+React中元素类型有哪些 DOM元素  注释元素  样式元素	 组件元素	 AD
+props验证需要注意的是	默认属性不会进行类型验证	验证器仅在开发环境下有作用	如果传入数据错误会发出警告	只能对class组件的props进行验证	  BC
+函数组件和class组件相同的是	都需要渲染jsx进行结构输出	都可以定义state	都有生命周期	都可以接收props			AD
+react中验证器只能验证js数据类型 	B
+static propTypes = { optionalString: string, }是正确的     B
+react中可以指定props的值是react元素   		A
+Router组件中component和render的区别不大 	B
+react路由里面只有一种BrowserRouter模式	 B
+
+声明props的值是一个react元素使用______________________   PropTypes.element
+声明一个props的值是函数使用____________________  PropTypes.func
+声明一个props的值是布尔值使用_____________  PropTypes.bool
+声明一个 prop 是任意值使用_____________	 	PropTypes.node
+PropTypes验证错误会在_________环境下抛出	 	开发
+在react验证中指定该prop为必传项使用什么？ PropTypes.array	PropTypes.number	PropTypes.element	PropTypes.any.isRequired	 D
+指定仅将单一子元素传递给组件，作为子节点使用？ 	PropTypes.element.isRequired	PropTypes.any.isRequired	PropTypes.node	PropTypes.array	A
+es6中static关键字在class中的作用是    静态属性	动态属性	实例属性	原型属性			A
+react中自定义prop验证规则使用？  PropTypes.array	PropTypes.number	PropTypes.instanceOf(Message)   function(props, propName, componentName) {},	D
+下面关于jsx描述正确的是，？   jsx就是html，返回一个dom节点	jsx就是xml，返回一个xml对象	jsx是javascript表达式，可以使用babel转换	jsx就是js			C
+prop的值可以是下面什么数据类型	字符串	组件	dom元素	以上都可以     D
+什么情况会触发componentWillReceiveProps生命周期函数	组件接收到新的props时	组件接收到新的state时	组件重新渲染时	当前组件修改props的时候  A
+在react框架中对于findDOMNode说法正确的	当参数是DOM，返回值就是该DOM	当参数是Component获取的是该Component?	当参数是Component获取的是该父级组件?	null			A
+下面哪些方法可以处理prop值的验证	 propTypes   TypeScript  es6   jqueyr	 AB
+proptypes验证错描述正确的有	可以验证特定的 JS 原始类型。	可以自定义验证规则	可以验证元素	可以指定特定值	 ABCD
+下面哪些数据可以背proptypes验证	默认的prop	传递prop	内置的state	react中的任何配置	 AB
+proptypes是用验证state值的类型的   B
+proptypes只能验证传递的prop	  	B
+使用defaultProps实例属性可以定义prop的默认值 	B
+react中prop可以传递执行后的函数   A
+react中传递prop使用this.$props接收 B
+

@@ -1,0 +1,3926 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+      <!--exam server-->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <meta name="apple-mobile-web-app-capable" content="yes" >
+	  <meta name="apple-mobile-web-app-status-bar-style" content="black" >
+	  <meta name="format-detection" content="telephone=no">
+	  <meta name="format-detection" content="email=no" >
+	  <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+	  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+	  <meta HTTP-EQUIV="expires" CONTENT="0">
+	  <link href="http://172.16.10.111/exam/resources/bootstrap/css/bootstrap-huan.css" rel="stylesheet">
+	  <link href="http://172.16.10.111/exam/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	  <link href="http://172.16.10.111/exam/resources/css/font-awesome.css">
+	  <link href="http://172.16.10.111/exam/resources/css/style.css" rel="stylesheet">
+	  <link href="http://172.16.10.111/exam/resources/skin/assets/css/beyond.min.css" rel="stylesheet">
+
+<link href="http://172.16.10.111/exam/resources/skin/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://172.16.10.111/exam/resources/css/exam.css" rel="stylesheet">
+<title>已考试卷查看</title>
+<style>
+pre{
+	border: 0px;
+	font-size: 20px;
+} 
+#add-more-qt-to-paper {
+	cursor: pointer;
+	color: #1ba1e2;
+}
+
+#add-more-qt-to-paper:hover {
+	color: #ff7f74;
+}
+
+#add-more-qt-to-paper i {
+	color: #47a447;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+#qt-selector-iframe {
+	border: none;
+	height: 600px;
+}
+
+.tmp-ques-remove {
+	margin-left: 10px;
+}
+
+.question-point {
+	padding: 0 8px;
+	margin: 0 2px;
+	border-bottom: 1px solid;
+	/* 	cursor: pointer; */
+}
+select {
+	width: 120px
+}
+td.tdName {
+	width: 6%;
+}
+.mytitle,.fa-align-justify{
+font-size:15px;
+}
+</style>
+</head>
+<body>
+	<div id="main">
+		<div class="well with-header with-footer">
+			<div class="header bordered-themeprimary bg1">
+				<i class="fa fa-pencil mytitle">已考试卷查看</i>
+				<button type="button" class="btn btn-primary btn-xs"
+					style="float: right;" onclick="window.close();">
+					<i class="fa fa-undo"></i>关闭
+				</button>
+			</div>
+			<div class="widget-body ">
+				<div>
+					<div>
+						<h1>
+							<i class="fa fa-align-justify">试卷信息</i>
+						</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-hover table-striped table-bordered table-condensed">
+							<tbody>
+								<tr>
+									<td style="width: 15%; text-align: center">试卷名称：</td>
+									<td colspan="2" style="text-align: center"><span>-</span>
+										<input type="text" name="name" id="name" value="P0248-网站渐进式开发理论20" readonly="readonly"/>
+										<span style="color: red"></span> <input type="hidden" id="id"
+										value="770960c5d17343f59ca91d3a7a5e5cf8" name="id"></td>
+									<td  style="width: 15%; text-align: center">及格分数：</td>
+									<td colspan="2" style="text-align: center"><input type="text"
+										name="passPoint" id="passPoint" maxlength="3"
+										value="90" readonly="readonly"/><span style="color: red"></span></td>
+								</tr>
+								<tr>
+									<td style="width: 15%; text-align: center">试卷层级：</td>
+									<td style="width: 17%; text-align: center">学院&nbsp;:&nbsp;网站工程</td>
+									<td style="width: 17%; text-align: center">方向&nbsp;:&nbsp;</td>
+									<td style="width: 17%; text-align: center">阶段&nbsp;:&nbsp;</td>
+									<td style="width: 17%; text-align: center">课程&nbsp;:&nbsp;</td>
+									<td style="width: 17%; text-align: center">单元&nbsp;:&nbsp;</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="widget-body ">
+				<div>
+					<div>
+						<h1>
+							<i class="fa fa-align-justify">已考试卷分析</i>
+						</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-bordered  table-striped">
+							<tbody>
+								<tr>
+									<td>
+										<form name="saveForm" id="saveForm" method="post">
+											<div class="def-bk" id="bk-exampaper">
+												<div class="expand-bk-content" id="bk-conent-exampaper">
+													<div id="exampaper-header">
+														<div id="exampaper-desc-container">
+															<div id="exampaper-desc" class="exampaper-filter"></div>
+															<div style="margin-top: 5px;">
+																<span>试卷总分：</span><span id="exampaper-total-point"
+																	style="margin-right: 20px;"></span>
+															</div>
+														</div>
+													</div>
+													<ul id="exampaper-body" style="padding: 0px;">
+														<!-- 开始加载试卷 -->
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">1.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">039718e945fb4755901a3b1b241303ef</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react中proptypes检测是否为一个元素使用什么方法？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_039718e945fb4755901a3b1b241303ef" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								PropTypes.element
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_039718e945fb4755901a3b1b241303ef" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								PropTypes.text
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_039718e945fb4755901a3b1b241303ef" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								PropTypes.nodes
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_039718e945fb4755901a3b1b241303ef" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								PropTypes.el
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">2.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">e17a308bf1ad4a1ba0369bd806aebff5</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>this._change = this._change.bind(this);这句话描述正确的是？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_e17a308bf1ad4a1ba0369bd806aebff5" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								改变_change方法的this并且执行它
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_e17a308bf1ad4a1ba0369bd806aebff5" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								返回一个新的绑定了this的_change函数，不会执行
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_e17a308bf1ad4a1ba0369bd806aebff5" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								执行_change函数
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_e17a308bf1ad4a1ba0369bd806aebff5" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								没有意义替换了原来的_change方法
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						B
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							B
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">3.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">a27ba73f4f0f4a709df6c16d466355ee</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react中的生命周期分为几个阶段     知识点：生命周期     来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_a27ba73f4f0f4a709df6c16d466355ee" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								1
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_a27ba73f4f0f4a709df6c16d466355ee" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								2
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_a27ba73f4f0f4a709df6c16d466355ee" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								3
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_a27ba73f4f0f4a709df6c16d466355ee" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								4
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						C
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							C
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">4.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">e5ab09e5ef3e4676b687c5ccc00a6264</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react中子组件获取父组件的数据需要通过    知识点：组件 通信来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_e5ab09e5ef3e4676b687c5ccc00a6264" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								props
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_e5ab09e5ef3e4676b687c5ccc00a6264" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								state
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_e5ab09e5ef3e4676b687c5ccc00a6264" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								data
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_e5ab09e5ef3e4676b687c5ccc00a6264" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								回调函数
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">5.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">17485b0785b442db9b985acc8c44ba92</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>下面对于单页面理解错误的是  知识点：组件创建   来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_17485b0785b442db9b985acc8c44ba92" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								只有一个html页面的应用
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_17485b0785b442db9b985acc8c44ba92" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								地址改变不会向服务端发送请求
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_17485b0785b442db9b985acc8c44ba92" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								第一次打开页面请求的是服务端
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_17485b0785b442db9b985acc8c44ba92" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								只能通过hash方式完成单页面
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						D
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							D
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">6.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">dfbd59ad6921420297a765271e733ee1</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>在react应用中获取store中state数据的方法是？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_dfbd59ad6921420297a765271e733ee1" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								connect()
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_dfbd59ad6921420297a765271e733ee1" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								dispatch()
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_dfbd59ad6921420297a765271e733ee1" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								reducer
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_dfbd59ad6921420297a765271e733ee1" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								store
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">7.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">a4d31c26607944f6b1fbaad9ffd4af7d</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>为了实现异步action应该使用下面那个中间件
+知识点：redux      来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_a4d31c26607944f6b1fbaad9ffd4af7d" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								redux-logger
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_a4d31c26607944f6b1fbaad9ffd4af7d" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								redux-logge
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_a4d31c26607944f6b1fbaad9ffd4af7d" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								redux-thunk
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_a4d31c26607944f6b1fbaad9ffd4af7d" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								react-thunk
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						C
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							C
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">8.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">50d94c6c02ad4b3bb11c48720c9a653c</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react存在期有几个生命周期函数         知识点：生命周期     来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_50d94c6c02ad4b3bb11c48720c9a653c" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								2
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_50d94c6c02ad4b3bb11c48720c9a653c" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								3
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_50d94c6c02ad4b3bb11c48720c9a653c" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								4
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_50d94c6c02ad4b3bb11c48720c9a653c" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								5
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						D
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							D
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">9.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">1eae1ccb0f544b9a8469ebdee43c40e7</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>&lt;Parent&gt;
+  &lt;h1&gt;Welcome.&lt;/h1&gt;
+&lt;/Parent&gt;  在Parent组件内部读取props.children返回的是什么格式的数据</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_1eae1ccb0f544b9a8469ebdee43c40e7" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								object
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_1eae1ccb0f544b9a8469ebdee43c40e7" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								Array
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_1eae1ccb0f544b9a8469ebdee43c40e7" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								String
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_1eae1ccb0f544b9a8469ebdee43c40e7" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								null
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">10.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">268919d9b5d84d3a93ed6286114701c9</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>mapStateToProps描述错误的是？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_268919d9b5d84d3a93ed6286114701c9" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								如果定义该参数，组件将会监听 Redux store 的变化，只要 Redux store 发生改变，mapStateToProps 函数就会被调用
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_268919d9b5d84d3a93ed6286114701c9" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								如果你省略了state参数，你的组件将不会监听 Redux store
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_268919d9b5d84d3a93ed6286114701c9" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								只要 Redux store 发生改变，mapStateToProps 函数就会被调用。该回调函数必须返回一个纯对象，这个对象会与组件的 props 合并
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_268919d9b5d84d3a93ed6286114701c9" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								组件接收到新的 props，mapStateToProps 不会被调用
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						D
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							D
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">11.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">56a3234bd91a4b7ba31ce9b5d4e1a39f</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react-router-dom中导航选中激活时候应用的样式名是？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_56a3234bd91a4b7ba31ce9b5d4e1a39f" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								activeClassName
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_56a3234bd91a4b7ba31ce9b5d4e1a39f" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								active
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_56a3234bd91a4b7ba31ce9b5d4e1a39f" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								activeStyle
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_56a3234bd91a4b7ba31ce9b5d4e1a39f" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								isActive
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">12.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">51f8dab7bdca42a090c23f9807d4f61b</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑两者之间通过什么座关联才能获取到数据         知识点：生命周期     来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_51f8dab7bdca42a090c23f9807d4f61b" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								connect
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_51f8dab7bdca42a090c23f9807d4f61b" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								state
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_51f8dab7bdca42a090c23f9807d4f61b" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								da ta
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_51f8dab7bdca42a090c23f9807d4f61b" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								自定义事件
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">13.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">2fa7c7161e554341aabb56df0c793371</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>组件在哪里生成虚拟的DOM节点？      知识点：组件 通信来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_2fa7c7161e554341aabb56df0c793371" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								componentWillReceiveProps
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_2fa7c7161e554341aabb56df0c793371" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								render
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_2fa7c7161e554341aabb56df0c793371" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								shouldComponentUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_2fa7c7161e554341aabb56df0c793371" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								componentWillUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						B
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							B
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">14.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">9daf2ef7bb0b44ee9ae781bbc7c85ac3</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>下面的jsx那个正确的     ：知识点：dom操作 来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_9daf2ef7bb0b44ee9ae781bbc7c85ac3" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								&lt;div&gt;1&lt;/div&gt;&lt;div&gt;2&lt;/div&gt;
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_9daf2ef7bb0b44ee9ae781bbc7c85ac3" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								&lt;div&gt;&lt;span&gt;1&lt;/span&gt;&lt;div&gt;
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_9daf2ef7bb0b44ee9ae781bbc7c85ac3" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;div&gt;2&lt;/div&gt;&lt;/div&gt;
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_9daf2ef7bb0b44ee9ae781bbc7c85ac3" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						C
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							C
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">15.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">f85fae06afab45bb80ca49960811a24b</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>什么属性可以引用组件真正实例？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_f85fae06afab45bb80ca49960811a24b" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								ref
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_f85fae06afab45bb80ca49960811a24b" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								class
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_f85fae06afab45bb80ca49960811a24b" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								id
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_f85fae06afab45bb80ca49960811a24b" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								value
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">16.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">8e43f5aca08f477493a2754aa1b71456</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>真实的dom与虚拟dom差别在那里</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_8e43f5aca08f477493a2754aa1b71456" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								没区别
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_8e43f5aca08f477493a2754aa1b71456" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								一个是原生dom，一个js对象
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_8e43f5aca08f477493a2754aa1b71456" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								都是对象
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_8e43f5aca08f477493a2754aa1b71456" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								都是通过浏览器渲染，虚拟dom浏览器也可以渲染
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						B
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							B
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">17.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">26889726f47f4f02bb16fbf53d7e822a</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>this.setState((参数) =&gt; ({
+    name: &#034;mr.&#034; + 参数
+})) 参数是值得什么</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_26889726f47f4f02bb16fbf53d7e822a" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								新的state
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_26889726f47f4f02bb16fbf53d7e822a" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								新的props
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_26889726f47f4f02bb16fbf53d7e822a" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								原来的state
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_26889726f47f4f02bb16fbf53d7e822a" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								原来的props
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						C
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							C
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">18.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">a9c5f76fa6cd4feebfa477c012de5f4f</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>接收到的数据但是不更新组件时用到了那个生命周期</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_a9c5f76fa6cd4feebfa477c012de5f4f" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								componentWillMount
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_a9c5f76fa6cd4feebfa477c012de5f4f" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								componentDidMount
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_a9c5f76fa6cd4feebfa477c012de5f4f" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								shouldComponentUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_a9c5f76fa6cd4feebfa477c012de5f4f" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								render
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						C
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							C
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">19.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">657d7e56571049288cb12dcb615d37bc</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>this.setState({
+    data: datas
+});
+this.setState({
+    data: datas
+});
+render会执行几次？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_657d7e56571049288cb12dcb615d37bc" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								1
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_657d7e56571049288cb12dcb615d37bc" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								2
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_657d7e56571049288cb12dcb615d37bc" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								3
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_657d7e56571049288cb12dcb615d37bc" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								4
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						A
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							A
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																	<!-- 单选 -->
+																	<li class="question qt-singlechoice"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">20.</span><span
+																				class="question-type" style="display: none;">singlechoice</span><span>[单选题]</span><span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">3</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">4271f2c0ccdf4402a7d9c8e7a75db088</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>组件设置默认 props(属性) 使用</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_4271f2c0ccdf4402a7d9c8e7a75db088" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								props
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_4271f2c0ccdf4402a7d9c8e7a75db088" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								defaultProps
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_4271f2c0ccdf4402a7d9c8e7a75db088" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								propTypes
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_4271f2c0ccdf4402a7d9c8e7a75db088" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								setState
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						B
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							B
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">21.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">500de1e9e3c1423c9aaca21235b8b9e5</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>proptypes能检测的类型有？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_500de1e9e3c1423c9aaca21235b8b9e5" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								array
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_500de1e9e3c1423c9aaca21235b8b9e5" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								Object
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_500de1e9e3c1423c9aaca21235b8b9e5" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								Function
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_500de1e9e3c1423c9aaca21235b8b9e5" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								String
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">ABCD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							ABCD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">22.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">216a9c662d1e4197877cc065a29d731b</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react中下面哪些生命周期不能改变state      知识点：生命周期 来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_216a9c662d1e4197877cc065a29d731b" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								render
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_216a9c662d1e4197877cc065a29d731b" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								componentDidMount
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_216a9c662d1e4197877cc065a29d731b" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								shouldComponentUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_216a9c662d1e4197877cc065a29d731b" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								componentWillUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">ACD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							ACD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">23.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">60146a3cd848441998a0747eb842c85a</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>redux中createdStore方法创建的store是一个对象，包含以下哪些方法？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_60146a3cd848441998a0747eb842c85a" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								getState()
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_60146a3cd848441998a0747eb842c85a" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								dispatch(action)
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_60146a3cd848441998a0747eb842c85a" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								subscribe(listener)
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_60146a3cd848441998a0747eb842c85a" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								replaceReducer(nextReducer)
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">ABCD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							ABCD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">24.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">74705dddd9b04884bae21fa9d0a9feb5</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>connect方法接受的参数都有哪些？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_74705dddd9b04884bae21fa9d0a9feb5" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								[mapStateToProps(state, [ownProps]: stateProps)]（类型：函数）
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_74705dddd9b04884bae21fa9d0a9feb5" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								[mapDispatchToProps(dispatch, [ownProps]): dispatchProps]（类型：对象或函数）
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_74705dddd9b04884bae21fa9d0a9feb5" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								[mergeProps(stateProps, dispatchProps, ownProps): props]（类型：函数）
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_74705dddd9b04884bae21fa9d0a9feb5" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								[options](类型：对象)
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">ABCD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							ABCD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">25.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">3f99e8e3ff404857affe8fe4a30dece1</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>下面那些属于前端框架      知识点：框架 来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_3f99e8e3ff404857affe8fe4a30dece1" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								jquery
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_3f99e8e3ff404857affe8fe4a30dece1" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								react
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_3f99e8e3ff404857affe8fe4a30dece1" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								iscroll
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_3f99e8e3ff404857affe8fe4a30dece1" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								vue
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">BD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							BD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">26.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">9ce96af32577404fabb19bbdfc5b2a8f</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>redux的作用描述正确的是  知识点：redux 来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_9ce96af32577404fabb19bbdfc5b2a8f" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								统一管理数据
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_9ce96af32577404fabb19bbdfc5b2a8f" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								提升运行性能
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_9ce96af32577404fabb19bbdfc5b2a8f" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								减少组件创建
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_9ce96af32577404fabb19bbdfc5b2a8f" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								可以单独使用
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">AD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							AD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">27.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">3ef520eedb184d1aae8d9009de50ed15</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>高阶组件的用法有？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_3ef520eedb184d1aae8d9009de50ed15" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								属性代理
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_3ef520eedb184d1aae8d9009de50ed15" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								反向继承
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_3ef520eedb184d1aae8d9009de50ed15" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								组件组合
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_3ef520eedb184d1aae8d9009de50ed15" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								组件创建
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">ABC</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							ABC
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">28.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">11bf9e6e667b463c8a6cb4bcc46097fb</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>redux中间件用于处理异步的有？</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_11bf9e6e667b463c8a6cb4bcc46097fb" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								redux-logger
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_11bf9e6e667b463c8a6cb4bcc46097fb" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								redux-thunk
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_11bf9e6e667b463c8a6cb4bcc46097fb" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								redux-promise
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_11bf9e6e667b463c8a6cb4bcc46097fb" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								redux-saga
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">BCD</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							BCD
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">29.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">7a1a5b2339eb4edb82aa74a0f55f5a08</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>下面哪些生命周期方法在组件的生存范围之内只会执行一次</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_7a1a5b2339eb4edb82aa74a0f55f5a08" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								componentWillMount
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_7a1a5b2339eb4edb82aa74a0f55f5a08" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								componentDidMount
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_7a1a5b2339eb4edb82aa74a0f55f5a08" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								shouldComponentUpdate
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_7a1a5b2339eb4edb82aa74a0f55f5a08" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								render
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">AB</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							AB
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																	<!-- 多选 -->
+																	<li class="question qt-multiplechoice"
+																		style="display: list-item;"><div
+																			class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">30.</span> <span
+																				class="question-type" style="display: none;">multiplechoice</span>
+																			<span>[多选题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span>
+																			<span class="question-id" style="display: none;">94723725e8dc445f81cdf2178b96c04e</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>redux有什么缺点  知识点：redux 来源：大纲</pre>
+																				
+																				
+																			</p>
+																			<ul class="question-opt-list">
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="A" name="question-radio1_94723725e8dc445f81cdf2178b96c04e" class="question-input"> -->
+																						<span class="question-li-text">A: 
+																								一个组件所需要的数据，必须由父组件传过来，而不能像flux中直接从store取
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="B" name="question-radio1_94723725e8dc445f81cdf2178b96c04e" class="question-input"> -->
+																						<span class="question-li-text">B: 
+																								当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新rende
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="C" name="question-radio1_94723725e8dc445f81cdf2178b96c04e" class="question-input"> -->
+
+																						<span class="question-li-text">C: 
+																								增加程序员的负担
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																					<li class="question-list-item">
+																						<!-- 																	<input type="radio" --> <!-- 																	value="D" name="question-radio1_94723725e8dc445f81cdf2178b96c04e" class="question-input"> -->
+
+																						<span class="question-li-text">D: 
+																								提升组件的性能
+																							 
+																					</span>
+																					</li>
+																				
+																				
+																				
+
+																			</ul>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">AB</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							AB
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div></li>
+																
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																	<!-- 判断 -->
+																	<li class="question qt-trueorfalse"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">31.</span><span
+																				class="question-type" style="display: none;">trueorfalse</span>
+																			<span>[判断题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">85620f601fdc4637812ba11353226384</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react中可以通过函数创建组件，函数创建的组件是一个组件实例      知识点：组件 来源：大纲</pre>
+																				
+																				
+																			</p>
+
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">
+																					
+																						
+																						错
+																					
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							
+																								
+																								错
+																							
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																	<!-- 判断 -->
+																	<li class="question qt-trueorfalse"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">32.</span><span
+																				class="question-type" style="display: none;">trueorfalse</span>
+																			<span>[判断题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">fd67dcea8ffd4726b2a676c25d8a5c45</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>路由中&lt;Switch&gt;组件下的子节点只能是 &lt;Route&gt; 或 &lt;Redirect&gt; 元素</pre>
+																				
+																				
+																			</p>
+
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">
+																					
+																						对
+																						
+																					
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							
+																								对
+																								
+																							
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																	<!-- 判断 -->
+																	<li class="question qt-trueorfalse"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">33.</span><span
+																				class="question-type" style="display: none;">trueorfalse</span>
+																			<span>[判断题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">f5bba3e0c68d404fa9068a82989ca99e</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>调用一次setState就会立即会触发一次render的说法是否正确？</pre>
+																				
+																				
+																			</p>
+
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">
+																					
+																						
+																						错
+																					
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							
+																								
+																								错
+																							
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																	<!-- 判断 -->
+																	<li class="question qt-trueorfalse"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">34.</span><span
+																				class="question-type" style="display: none;">trueorfalse</span>
+																			<span>[判断题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">9be6eb9a84504aa2935a845c8dd1c37a</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>在React中&lt;tr&gt;元素不可以作为&lt;table&gt;元素的直接子元素?</pre>
+																				
+																				
+																			</p>
+
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">
+																					
+																						对
+																						
+																					
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							
+																								对
+																								
+																							
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																	<!-- 判断 -->
+																	<li class="question qt-trueorfalse"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">35.</span><span
+																				class="question-type" style="display: none;">trueorfalse</span>
+																			<span>[判断题]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">bad3e2bd2af3496b98c40087c1862190</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react在组件中无法直接读取redux的状态</pre>
+																				
+																				
+																			</p>
+
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span><span class="answer_value">
+																					
+																						对
+																						
+																					
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span></span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																						
+																							<span style="color:red">
+																							
+																								
+																								错
+																							</span>
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																
+																	<!-- 填空 -->
+																	<li class="question qt-fillblank"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">36.</span><span
+																				class="question-type" style="display: none;">fillblank</span>
+																			<span>[填空题(手动判卷)]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">f29385860a1c4aaf815d0d35540e2335</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>react受控组件中select元素默认选中是通过___________控制的       知识点：受控组件    来源：大纲</pre>
+																				
+																				
+																			</p>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						根select元素的value值
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							根select元素的value
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																
+																	<!-- 填空 -->
+																	<li class="question qt-fillblank"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">37.</span><span
+																				class="question-type" style="display: none;">fillblank</span>
+																			<span>[填空题(手动判卷)]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">e201b3c7e8ef493c9ce0ae54f450080d</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>const objA = { name: &#039;cc&#039;, age: 18, address: &#039;上海&#039; }
+    const objB = { address: &#039;beijing&#039; }
+    const objC = {} // 这个为目标对象
+    const obj = Object.assign(objC, objA, objB)
+console.log(obj)的结果是_______________</pre>
+																				
+																				
+																			</p>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						{name: &#034;cc&#034;, age: 18, address: &#034;beijing&#034;}
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							{name:&#039;cc&#039;,age:18,address:&#039;beijing&#039;}
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																
+																	<!-- 填空 -->
+																	<li class="question qt-fillblank"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">38.</span><span
+																				class="question-type" style="display: none;">fillblank</span>
+																			<span>[填空题(手动判卷)]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">6ce53c30a5e44bc2b8924ff44f3daa47</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>在redux中通过______派发事件执行对应的state生成操作？</pre>
+																				
+																				
+																			</p>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						dispatch
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							dispatch
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																
+																	<!-- 填空 -->
+																	<li class="question qt-fillblank"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">39.</span><span
+																				class="question-type" style="display: none;">fillblank</span>
+																			<span>[填空题(手动判卷)]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">9657be3c8486424c919909d6c58346fb</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>在 React 当中 通过_________区分Element 和 Component ？</pre>
+																				
+																				
+																			</p>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						首字母大小写
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							首字母大小写
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+															
+														
+															
+																
+																
+																
+																
+																	<!-- 填空 -->
+																	<li class="question qt-fillblank"
+																		style="display: list-item;">
+																		<div class="question-title">
+																			<div class="question-title-icon"></div>
+																			<span class="question-no">40.</span><span
+																				class="question-type" style="display: none;">fillblank</span>
+																			<span>[填空题(手动判卷)]</span> <span
+																				class="question-point-content"><span>(</span><span
+																				class="question-point">2</span><span>分)</span></span><span
+																				class="question-id" style="display: none;">676541ebbf7c4f7d9d72d5a675ea9189</span>
+																		</div>
+																		<div class="question-body">
+																			<p class="question-body-text">
+																				
+																					<pre>redux中的state需要通过_________才能在组件中访问</pre>
+																				
+																				
+																			</p>
+																		</div>
+																		<div class="answer-desc">
+																			<div class="answer-desc-summary">
+																				<span>正确答案：</span> <span class="answer_value">
+																					
+																						connect
+																					 
+																				</span><br>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<div class="answer-desc-content">
+																					<span>试题解析：</span> <span> 
+																							
+																						 
+																					</span>
+																				</div>
+																			</div>
+																			<div class="answer-desc-detail">
+																				<span>我的答案：</span>
+																					
+																						
+																							conncet
+																						
+																						
+																					
+																				<br>
+																			</div>
+																		</div>
+																	</li>
+																
+																
+																
+															
+														
+													</ul>
+												</div>
+											</div>
+										</form>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+<script type="text/javascript"  src ="http://172.16.10.111/exam/resources//js/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript"  src ="http://172.16.10.111/exam/resources//boot.js"></script>
+<script type="text/javascript"  src ="http://172.16.10.111/exam/resources//ajaxAnywhere/aa.js"></script>
+<script type="text/javascript"  src ="http://172.16.10.111/exam/resources//app.js"></script>
+<script type="text/javascript"  src ="http://172.16.10.111/exam/resources//bootstrap/js/bootstrap.min.js"></script>
+<script src="http://172.16.10.111/exam/resources//js/jquery.sliderBar.js"></script>
+<script type="text/javascript">
+if (!ch) {alert("请使用谷歌浏览器登录!"); window.location.href="http://172.16.10.111/exam/index.jsp"; }
+</script>
+
+<script type="text/javascript">
+	var paper = {};
+	$(function() {
+		examing.initial();
+		var papername="P0248-网站渐进式开发理论20";
+		var prefix=papername.substring(0,6);
+		var name=papername.substring(6,papername.length);
+		$("#name").val(name);
+		$("#name").prev().html(prefix);
+	});
+
+	var examing = {
+
+		initial : function initial() {
+
+			this.updateSummery();
+			this.bindQuestionFilter();
+			this.bindfocus();
+
+		},
+		/**
+		 * 切换考题类型事件
+		 */
+		bindQuestionFilter : function bindQuestionFilter() {
+			$("#exampaper-desc").delegate("span.exampaper-filter-item",
+					"click", function() {
+						var qtype = $(this).find(".efi-qcode").text();
+						examing.doQuestionFilt(qtype);
+					});
+		},
+		/**
+		 * 更新题目简介信息
+		 */
+		updateSummery : function updateSummery() {
+			if ($(".question").length === 0) {
+				$("#exampaper-desc").empty();
+				$("#exampaper-total-point").text(0);
+				return false;
+			}
+			var questiontypes = this.questiontypes;
+			var all = 0;
+			var summery = "";
+			for (var i = 0; i < questiontypes.length; i++) {
+				var question_sum_q = $("." + questiontypes[i].code).length;
+				all += question_sum_q;
+				if (question_sum_q == 0) {
+					continue;
+				} else {
+					summery = summery
+							+ "<span class=\"exampaper-filter-item efi-"
+						+ questiontypes[i].code
+						+ "\">"
+							+ questiontypes[i].name
+							+ "[<span class=\"efi-tno\">"
+							+ $("." + questiontypes[i].code).length
+							+ "</span>]<span class=\"efi-qcode\" style=\"display:none;\">"
+							+ questiontypes[i].code + "</span></span>";
+				}
+			}
+			if (all != 0) {
+				summery = "<span class=\"exampaper-filter-item efi-"
+				+ questiontypes[0].code
+				+ "\">"
+						+ questiontypes[0].name
+						+ "[<span class=\"efi-tno\">"
+						+ all
+						+ "</span>]<span class=\"efi-qcode\" style=\"display:none;\">"
+						+ questiontypes[0].code + "</span></span>" + summery;
+			}
+			$("#exampaper-desc").html(summery);
+			$("#exampaper-desc .efi-" + "qt-all").addClass("efi-selected");
+			examing.refreshTotalPoint();
+
+		},
+
+		/**
+		 * 切换到指定的题型
+		 */
+		doQuestionFilt : function doQuestionFilt(questiontype) {
+
+			if ($("#exampaper-desc .efi-" + questiontype).hasClass(
+					"efi-selected")) {
+				return false;
+			} else {
+				if (questiontype == 'qt-all') {
+					var questions = $("li.question");
+					questions.show();
+					$(".exampaper-filter-item").removeClass("efi-selected");
+					$("#exampaper-desc .efi-" + questiontype).addClass(
+							"efi-selected");
+				} else {
+					var questions = $("li.question");
+					questions.hide();
+					$("#exampaper-body ." + questiontype).show();
+
+					$(".exampaper-filter-item").removeClass("efi-selected");
+					$("#exampaper-desc .efi-" + questiontype).addClass(
+							"efi-selected");
+				}
+			}
+		},
+		questiontypes : new Array({
+			"name" : "全部",
+			"code" : "qt-all",
+			"typecode" : "-1"
+		}, {
+			"name" : "单选题",
+			"code" : "qt-singlechoice",
+			"typecode" : "1"
+		}, {
+			"name" : "多选题",
+			"code" : "qt-multiplechoice",
+			"typecode" : "2"
+		}, {
+			"name" : "判断题",
+			"code" : "qt-trueorfalse",
+			"typecode" : "0"
+		}, {
+			"name" : "填空题(手动判卷)",
+			"code" : "qt-fillblank",
+			"typecode" : "3"
+		}, 
+		{
+			"name" : "填空题(自动判卷)",
+			"code" : "qt-fillblank2",
+			"typecode" : "5"
+		}, {
+			"name" : "问答题",
+			"code" : "qt-shortanswer",
+			"typecode" : "4"
+		}, {
+			"name" : "论述题",
+			"code" : "qt-essay"
+		}, {
+			"name" : "分析题",
+			"code" : "qt-analytical"
+		}),
+
+		/**
+		 * 绑定考题focus事件(点击考题导航)
+		 */
+		bindfocus : function bindfocus() {
+			$("#question-navi").delegate(
+					"a.question-navi-item ",
+					"click",
+					function() {
+						var clickindex = $("a.question-navi-item").index(this);
+						var questions = $("li.question");
+						var targetQuestion = questions[clickindex];
+
+						var targetQuestionType = $(questions[clickindex]).find(
+								".question-type").text();
+
+						examing.doQuestionFilt("qt-" + targetQuestionType);
+						// $(targetQuestion).focus();
+
+						examing.scrollToElement($(targetQuestion));
+					});
+		},
+
+		scrollToElement : function scrollToElement(selector, time,
+				verticalOffset) {
+			time = typeof (time) != 'undefined' ? time : 500;
+			verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset
+					: 0;
+			element = $(selector);
+			offset = element.offset();
+			offsetTop = offset.top + verticalOffset;
+			$('html, body').animate({
+				scrollTop : offsetTop
+			}, time);
+		},
+		/**
+		 * 计算总分
+		 */
+		refreshTotalPoint : function refreshTotalPoint() {
+			var question_sum_p_all = 0;
+			var point_array = $(".question-point");
+			for (var i = 0; i < point_array.length; i++) {
+				var pointtmp = parseFloat($(point_array[i]).text());
+
+				if (isNaN(pointtmp)) {
+					continue;
+				} else {
+					question_sum_p_all = question_sum_p_all + pointtmp * 10;
+				}
+			}
+			$("#exampaper-total-point").text(question_sum_p_all / 10);
+		},
+		getType : function getType(input) {
+			var m = (/[\d]+(\.[\d]+)?/).exec(input);
+			if (m) {
+				// Check if there is a decimal place
+				if (m[1]) {
+					return 'float';
+				} else {
+					return 'int';
+				}
+			}
+			return 'string';
+		}
+	};
+</script>
+<script type="text/javascript">
+//-----查看文件列表
+function openFilePage(){
+	window.open("http://172.16.10.111/exam/admin/examfile/querylistNoDe.do?dataTable=exam_paper&dataId="+$("#id").val(), '_blank');
+}
+</script>
+</html>

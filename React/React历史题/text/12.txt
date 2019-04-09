@@ -1,0 +1,119 @@
+1  Reducer通过__________判断执行的任务
+     action.type
+2  dispatch通过传递________执行reducer中的action.type
+     action, reducer
+3  dispatch方法是下面那个对象的方法 
+   A  store实例
+   B  actions	
+   C  reducers
+   D  state	  A 
+4  在react路由中传递params数据获取的时候需要在     那个对象中获取
+   A  state
+   B  match
+   C  history
+   D  location    B		
+5  combineReducers的作用是
+   A  合并state
+   B  合并reducer
+   C  合并actions
+   D  合并store	   B 
+6  Provider是用来关联store和组件的，那么需要传递什么属性
+   A  state
+   B  store
+   C  props
+   D  context     B	 
+7  [mapDispatchToProps(dispatch, [ownProps]): dispatchProps]描述错误的是？
+   A  接受redux的dispatch方法作为参数
+   B  返回当前组件相关部分的action creater
+   C  只要组件接收到新 props，mapDispatchToProps 也会被调用	
+   D  在这里不可以将action creater与dispatch绑定    D	  
+8  以下对于高阶组件描述正确的是？
+   A  高阶组件就是普通的组件
+   B  高阶组件类似高阶函数，他接受react组件作为输入，输出一个新的react组件
+   C  高阶组件接受函数作为输入，或输出一个函数
+   D  高阶组件不可以控制props和state	 B  
+9  [mapStateToProps(state, [ownProps]): stateProps]描述错误的是？
+   A  如果定义该参数，组件将会监听 Redux store 的变化，只要 Redux store 发生改变，mapStateToProps 函数就会被调用
+   B  如果你省略了state参数，你的组件将不会监听 Redux store
+   C  只要 Redux store 发生改变，mapStateToProps 函数就会被调用。该回调函数必须返回一个纯对象，这个对象会与组件的 props 合并
+   D  组件接收到新的 props，mapStateToProps 不会被调用			D 
+10  一般action都要注意哪些问题？
+   A  action内必须有一个type字段
+   B  action必须是一个对象
+   C  action可以返回一个字符串
+   D  action可以返回一个数组   AB
+11 如何实现组件嵌套 
+   A  使用children属性
+   B  使用props传递组件	
+   C  使用append
+   D  使用state	  AB 
+12  可以在组件中直接修改props	 B	 
+13  <Switch> 下的子节点只能是 <Route> 或 <Redirect> 元素	 A	 
+14  不推荐开发者滥用state，过多的内部状态会让数据流混乱，程序变得难以维护   A   
+15  state只关心组件自己内部的状态，props会向下遍历整颗DOM树   A	 
+16  在redux中通过redux-thunk部可以实现异步操作    A 
+17  react所有组件都继承自顶层类_____
+      React.Component	 
+18  在react中数据是____流动的
+     自顶向下单向	 
+19  每一个_____都是纯函数，意味着没副作用，接收一定的输入，必定得到一定的输出
+      reducer	 
+20  react-router-dom中适合用作导航的标签是_____
+    <NavLink> 
+21 connect高阶组件中第一个回调函数可以接收___________返回一个对象，将对象内容添加到组件的_________ 
+   state, props 
+22 NavLink导航选中激活时候应用的样式名是？
+   A  activeClassName
+   B  active
+   C  activeStyle
+   D  isActive	   A 
+23 Action Creator描述错误的是什么？
+   A  是一个创建 action 的函数
+   B  是一个信息的负载
+   C  action creator 是一个创建 action 的工厂
+   D  调用 action creator 只会生产 action，但不分发			B   
+24 connect中[mapDispatchToProps(dispatch, [ownProps]): dispatchProps]描述错误的是？
+   A  接受redux的dispatch方法作为参数
+   B  返回当前组件相关部分的action creater
+   C  只要组件接收到新 props，mapDispatchToProps 也会被调用
+   D  在这里不可以将action creater与dispatch绑定	 D 
+25 <Switch>描述正确的是？
+   A  只渲染出第一个与当前访问地址匹配的 <Route> 或 <Redirect>
+   B  判断函数
+   C  可渲染多个与当前访问地址匹配的 <Route>
+   D  配合<case>使用 			A 
+26  history 对象没有以下哪些属性和方法？
+   A  location
+   B  action
+   C  length
+   D  goTo()	 D 
+27 connect最多接收几个参数？
+   A  2
+   B  1
+   C  3
+   D  4	 D 
+28  connect中第一个函数中return的作用是	
+   A   将dispatch方法扩展到当前组件的state上
+   B  将redux中state扩展到组件的state上
+   C  返回一个对象，将返回对象的内容扩展到组件的props上
+   D  不能写return			C 
+29 在redux中dispatch({type:'name'})；两个redux中都有actions.type的判断，那么在redux中如何执行
+   A  执行最后一个
+   B  执行前一个
+   C  都执行
+   D  都不执行  C 
+30 connect接受的参数都有哪些？
+   A  [mapStateToProps(state, [ownProps]: stateProps)]（类型：函数）
+   B  [mapDispatchToProps(dispatch, [ownProps]): dispatchProps]（类型：对象或函数）
+   C  [mergeProps(stateProps, dispatchProps, ownProps): props]（类型：函数）
+   D  [options](类型：对象)    ABCD 
+31 以下哪些属于reducer禁止操作的事情？
+   A  修改传入参数
+   B  执行有副作用的操作，如 API 请求和路由跳转
+   C  调用非纯函数，如 Date.now() 或 Math.random()
+   D  更新state   ABC 
+32 reducer是改变state的唯一途径,并且修改state的时候如果state的属性是个对象的话可以修改对象中的某个熟悉 B 
+33 在reducer中可以通过ajax实现异步操作     B 
+34 react中高阶组件就是一个函数接收一个组件，返回一个新组件,新组件是扩展后的组件    A
+35 redux中在使用connect关联组件的时候，第一个回调函数中可以获取到state，并且可以将state中的内容扩展到组件的props	A
+36 connect就是一个react高阶组件   A

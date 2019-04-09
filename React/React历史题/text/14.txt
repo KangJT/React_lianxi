@@ -1,0 +1,131 @@
+1  在webpack中____________ 用来指定入口文件指定使用
+    entry
+2  react中数据驱动采用了__________ 的模式
+    单项数据流
+3  react提高ui渲染的效率是使用了_________技术。
+    虚拟dom
+4  react的生命周期一共分为____,____,____这几个阶段 
+    实例化 存在期  销毁期
+5  _________生命周期中生成虚拟dom
+    render
+6  下面那个框架是facebook开发的
+   A  vue	
+   B  angular
+   C  react	
+   D  jquery   C
+7  在es6中使用什么定义常量  
+   A  var	
+   B  const	
+   C  let	
+   D  window   B
+8  "在react生命周期中那个生命周期是只有props发生变化才会执行的
+  
+   A  shouldComponentUpdate	
+   B  componentWillMount	
+   C  componentWillUnmount	
+   D  componentWillReceiveProps  D
+9  react中一个react元素使用ref做了引用通过refs获取到的结果是什么
+   A  dom元素	
+   B  react元素	
+   C  组件实例	
+   D  组件对应的dom   C
+10 react中子组件中读取props的值应该使用什么属性
+   A  this.props	
+   B  this.prop	
+   C  props	
+   D  prop	 A
+11 在react中组件获取redux中的state需要通过 
+   A  connect
+   B  concat	
+   C  connact
+   D  concet			A
+12 在react中路由的对应的组件渲染到了页面的什么位置	
+   A  直接替换body元素	
+   B  渲染到body后面	
+   C  渲染到router-view所在的位置
+   D  渲染到对呀的route组件对应的位置   D
+13 react组件中允许内部存在状态的组件使用什么组件创建方式
+   A  函数方式
+   B  class方式
+   C  受控组件
+   D  非受控组件   B
+14 下面关于react和vue的区别正确的是
+   A  reac中没有指令	
+   B  vue中将数据与方法，通过不同的属性进行了区分	
+   C  react中没有组件化	
+   D  vue中没有虚拟dom    AB
+15  存在期的生命周期有下面哪些
+   A  shouldComponentUpdate	
+   B  componentWillMount	
+   C  componentWillUnmount	
+   D  componentWillReceiveProps    ABD
+16 react中使用虚拟dom算法提高了ui渲染速度     A
+17 react中通过单项数据流的方式明确了react中组件之间数据关系    A
+18 react晚于vue问世    B
+19 在react中通过指令的方式操作dom  B
+20 react中render方法返回的是一个虚拟dom，也就是一个js对象	 A
+21 ______组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件	
+    高阶
+22 reducer本质上是个函数，reducer(previousState,action) => _____	
+    newState
+23 在react中定义一个受控的并 可对其value进行更改 的 多行输入框 ______	 
+    <textarea value={textareaValue} onChange={this.handleTextareaChange}/>
+24 在constructor中如何给一个 this.handleClick 方法 绑定this	 
+     this.handleClick=this.handleClick.bind(this)
+25 react通过_____和________驱动视图的现实。  
+     state, props
+26 对于受控组件说法正确的是？
+   A  你应该始终传一个value属性进去，并且注册一个onChange的辅助方法来让组件变得可变
+   B  一个受控的组件自己维护自己的state
+   C  没有value属性
+   D  没办法更改value	   A
+27 在 React 当中 Element 和 Component 描述错误的是？
+   A  一个 React element 是一些 UI 的对象表示
+   B  一个 React Component 是一个函数或一个类
+   C  React Component返回 React element	
+   D  react中 Component和Element没区别	 D
+28 非受控组件input可以通过什么来表示组件的默认状态？
+   A  defaultValue
+   B  props
+   C  value
+   D  defaultChecked	 A
+29 在哪个生命周期发出 AJAX 请求最合适?
+   A  componentDidMount 
+   B  componentWillMount 
+   C  shouldComponentUpdate 	
+   D  constructor	 A
+30 reducer的返回值是什么？
+   A  newSstate
+   B  oldState
+   C  function
+   D  object   A
+31 使用以下哪个组件可以实现对当前所有子路由的遍历，并且对第一个匹配到路径的路由进行渲染
+   A  router	
+   B  Link
+   C  Switch	
+   D  exact  C
+32 使用es6 class类定义组件的时候 constructor函数中必须要写成什么？
+   A  super()	
+   B  this.state
+   C  this.props
+   D  this.defaultProps    A
+33 Redux三大原则中不包括？
+   A  单一数据源
+   B  惟一改变 state 的方法就是触发 setState
+   C  State 是只读的
+   D  使用纯函数来执行修改	 B
+34 React中调用setState之后发生了什么事情?
+   A  React会将当前传入的参数对象与组件当前的状态合并
+   B  React会以相对高效的方式根据新的状态构建React元素树并且重新渲染整个UI界面
+   C  React得到的元素树之后,React会自动计算出新的树与老的树的节点的差异
+   D  然后根据差异对界面进行最小化的渲染	 ABCD
+35 关于keys描述正确的是？
+   A  键(Keys) 帮助 React 标识哪个项被修改、添加或者移除了
+   B  数组中的每一个元素都应该有一个唯一不变的键(Keys)来标识
+   C  keys 在同辈元素中必须是唯一的
+   D  keys对提高性能没作用 ABC
+36 refs不允许您直接访问DOM元素或组件实例   B
+37 高阶组件是纯函数，没有副作用  A
+38 高阶组件会修改输入组件   B
+39 组件是将props转化成UI，然而高阶组件将一个组价转化成另外一个组件   A
+40 react中无法监听到props的改变   B

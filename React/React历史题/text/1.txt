@@ -1,0 +1,44 @@
+react中可以在javaScript中编写html结构，这种语法被称为_________ ，知识点：jsx 来源：大纲							JSX
+在JSX中class元素类名被替换成了____________，知识点：jsx 来源：大纲							className
+在jsx中编写js表达式使用___________，知识点：jsx 来源：大纲							{}
+React应用中的最小单位是__________，知识点：jsx 来源：大纲							元素
+React中提高性能优化dom操作方案是使用________，知识点：jsx 来源：大纲							虚拟dom
+react属于什么模式的框架	mvc	mvvm	mvp	只做视图层			D
+jsx是什么？	一个第三方包	HTML和JavaScript混写的语法，当遇到<，JSX就当HTML解析，遇到{就当JavaScript解析	一种框架	js的一个方法			D
+如何在jsx语法中书写表达式？	{}	{{}}	()	‘’			A
+react进行渲染元素时要使用什么包或者类库	react-dom	render	components	component			A
+在react中对元素描述正确的是？	元素是react应用中最小的构建单元	元素是必须通过react.component生成	元素是虚拟的	元素就是dom节点			A
+react-dom包描述正确的是？	提供了 DOM 特定的方法	可以操作组件的数据	可以使用其创建组件	不能操作dom的包			A
+react-dom中的render方法作用描述错误的是?	第一个参数是要渲染的react元素	第二个参数是要渲染到的容器	不会修改容器节点	会修改容器节点			D
+react的作者是谁？	google	facebook	百度	阿里			B
+React中元素类型有，知识点：jsx 来源：大纲	DOM元素	注释元素	样式元素	组件元素			AD
+下面关于React描述正确的是，知识点：jsx 来源：大纲	使用虚拟dom	组件化开发	单项数据流	指令优化			ABC
+下面关于JSX编写错误的是，知识点：jsx 来源：大纲	<div class="wrap"></div>	<div className="wrap"></div>	<a className="link"><a>	<!--注释-->			ACD
+react可以当成mvc中的v这一层，知识点：jsx 来源：大纲 A
+jsx是一种 JavaScript 的语法扩展，知识点：jsx 来源：大纲 A
+react实现了angular的内容可以写指令，服务，过滤器，知识点：jsx 来源：大纲	 B
+react中渲染元素使用react-dom包    A
+react专注于视图层的处理    A
+
+
+react是__________公司推出的框架，知识点：jsx 来源：大纲	 facebook
+html中label元素的for属性在jsx中使用_______表示，知识点：jsx 来源：大纲	 htmlFor
+react中视图层的结构使用______表示  知识点：jsx 来源：大纲	 jsx
+react中一个页面是通过________组合而成的	 组件
+要将React元素渲染到根DOM节点中我们需要使用________________________，知识点：jsx 来源：大纲	  ReactDOM.render()
+Babel 转译器会把 JSX 转换成一个？，知识点：jsx 来源：大纲	html结构	css	es6中的class	React.createElement() 的方法调用。			D
+React中提高性能优化dom操作是使用的什么方案？，知识点：jsx 来源：大纲	虚拟dom	组件	样式元素	组件元素			A
+下面那个jsx语法是正确的，知识点：jsx 来源：大纲	<div class='name'></div>	<div className='name'></div>	<div classname='name' ></div>	<div className='name'>			B
+ReactDOM.render()方法中的第一个参数是，知识点：jsx 来源：大纲	选择器	react元素	dom节点	node			B
+下面关于jsx叙述正确的是，知识点：jsx 来源：大纲	jsx就是html，返回一个dom节点	jsx就是xml，返回一个xml对象	jsx是javascript表达式，可以使用babel转换	jsx就是js	C
+下面那个框架大量采用了组件化的开发模式   知识点：jsx 来源：大纲	jquery	zepto	react	angular			C
+react中对于界面描述使用	html	xml	jsx	ejs			C
+下面程序中那个最终输出3，知识点：jsx 来源：大纲	<input value={1+2} />	<input value="1+2"/>	<input value={"1+2"} />	<input value="1+2" />			A
+react的特点是什么？	数据双向绑定	Virtual DOM	组件化系统	双向数据流			BC
+对jsx描述正确的是	JSX必须严格闭合。	jsx使用javascript	语法跟html非常相似	不可以使用条件判断			ABC
+对虚拟dom描述正确的是？	它直接用JavaScript实现了DOM树	组件的HTML结构并不会直接生成DOM，而是映射生成虚拟的JavaScript DOM结构	React又通过在这个虚拟DOM上实现了一个 diff 算法找出最小变更，再把这些变更写入实际的DOM中	这个虚拟DOM以JS结构的形式存在，计算性能会比较好，而且由于减少了实际DOM操作次数，性能会有较大提升	ABCD
+jsx语法中表达式使用{}	  A
+jsx语法中不可以书写条件    B
+在React中，是把真实的DOM转换成JavaScript对象树，也就是所谓的虚拟DOM。	 A
+react中提出jsx语法是为了提高开发效率，代码更加语义化	 A
+jsx语法是javascript和xml的混合		 A

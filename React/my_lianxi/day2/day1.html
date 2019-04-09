@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const vTtee = {
+            tag: "div",
+            children: [
+                'zhangsan',
+                18, {
+                    tag: "p",
+                    children: ['fsafs', 20],
+                    props: {
+                        name: "zhangsan",
+                        age: 100
+                    }
+                }
+            ],
+            props: {
+                id: "app"
+            }
+        }
+
+        function creatDoms(obj) {
+            let {
+                tag,
+                children,
+                props
+            } = obj;
+            console.log(tag, children, props);
+            let creatDom = document.createElement(tag);
+            console.log(creatDom);
+            Object.keys(props).forEach(v => {
+                console.log(v);
+                creatDom.setAttribute(v, props[v]);
+            });
+            // Object.keys(children).forEach(item => {
+            //     console.log(item);
+            // });
+            children.forEach(item => {
+                console.log(item);
+                if (typeof(item) === 'string') {
+                    // document.body.appendChild(item);
+                } else {
+                    //document.body.appendChild(creatDoms(item));
+                    // console.log(0)
+                }
+            })
+            creatDom.innerHTML = children;
+            return creatDom;
+        }
+        document.body.appendChild(creatDoms(vTtee));
+    </script>
+</body>
+
+</html>

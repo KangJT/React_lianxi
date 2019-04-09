@@ -1,0 +1,22 @@
+使用class创建组件getDefaultProps替换为___________________,  知识点：生命周期 来源：大纲	 static defaultProps = {}
+一个React组件的生命周期分为________________________________________部分,  知识点：生命周期   来源：大纲		实例化， 存在期， 销毁期
+在使用class定义的组件中state的声明方式为__________________, ,  知识点：生命周期 来源：大纲	this.state = {}
+使用createClass定义的组件中state的声明方式为___________________, ,  知识点：生命周期 来源：大纲	getInitalState = {}
+react的声明周期有______________个,  知识点：生命周期 来源：大纲		 10
+每当React使用完一个组件，这个组件必须从 DOM 中卸载后被销毁，此时__________________生命周期会被执行,  知识点：生命周期 来源：大纲	componentDIdMount	render	componentWillUnmout	componentWillUpdate			C
+什么情况下会触发componentWillReceiveProps这个生命周期	组件接收到新的props时	组件接收到新的state时	组件重新渲染时	当前组件修改props的时候			A
+下面那个方法能使组件调用自身的render()方法重新渲染组件	"forceUpdate
+"	update	beforeupdate	afterupdate			A
+下面方法中那个方法是需要创建并返回一个虚拟dom,  知识点：生命周期 来源：大纲	componentDidMount	componentWillMount	render	shouldComponentUpdate			C
+下面那个生命周期被称为渲染前,  知识点：生命周期 来源：大纲	componentDidMount	componentWillMount	render	shouldComponentUpdate			B
+只存在组件的内部状态的是用什么表示,  ,  知识点：生命周期 来源：大纲	props	start	state	data			C
+在react修改数据使用,  ,  知识点：生命周期 来源：大纲	setState	state	this.state	props			A
+组件的 props 或者 state 的改变不需要重新渲染可以使用那个方法控制,  ,  知识点：生命周期 来源：大纲	componentWillReceiveProps	componentWillUpdate	shouldComponentUpdate	render			C
+react存在期包含那些方法,  知识点：生命周期 来源：大纲	componentWillReceiveProps	shouldComponentUpdate	componentWillUpdate	componentDidUpdate			ABCD
+下面那些生命周期执行一次,  知识点：生命周期 来源：大纲	componentDidMount	render	getDefaultProps	componentWillReceiveProps			AC
+react生命周期有2个阶段,  知识点：生命周期 来源：大纲							B
+当组件的state改变先执行shouldComponentUpdate在执行render,  知识点：生命周期 来源：大纲							A
+getDefaultProps执行在getInitialState执行之前,  知识点：生命周期 来源：大纲							A
+render函数是必写的函数否则组件无法正常显示	 A
+"初始化每个实例的state只能使用getInitialState
+"	B

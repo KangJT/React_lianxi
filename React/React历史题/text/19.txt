@@ -1,0 +1,135 @@
+1  console.log(`hello ${name}`)结果是__________
+     hello
+2  console.log([1,2,3].map(x => x + 1))结果是__________
+    [2, 3, 4]
+3   "const objA = { name: 'cc', age: 18, address: '上海' }
+    
+      const objB = { address: 'beijing' }
+    
+      const objC = {} // 这个为目标对象
+    
+      const obj = Object.assign(objC, objA, objB)  
+console.log(obj)的结果是_______________"	
+      {name: "cc", age: 18, address: "beijing"}
+4  "const color = ['red', 'yellow']
+    const colorful = [...color, 'green', 'pink']
+    console.log(colorful)——————结果是"						     [red, yellow, green, pink]
+5   react中通过____________可以监听props的改变
+    componentWillReceiveProps
+6  select中通过添加什么属性实现多选下拉列表？
+   A  multiple={true}
+   B  checkbox
+   C  checked={true}
+   D  selected	 A
+7  虚拟dom的错误理解是下面那个？
+   A  用JS表示DOM结构	
+   B  比较两棵DOM树的差异是 Virtual DOM 算法最核心的部分
+   C  React又通过在这个虚拟DOM上实现了一个 diff 算法找出最小变更，再把这些变更写入实际的DOM中
+   D  diff后的差异不会应用到真正的DOM树上   D
+8  在react应用中获取store中state数据的方法是？
+   A  connect()
+   B  dispatch()
+   C  reducer
+   D  store			A
+9  不能实现对象深拷贝的方法的是？
+   A  JSON.stringify(JSON.parse(obj))
+   B  $.extend()
+   C  Object.assign()
+   D  Object.create()	 C
+10  react中实现子向父传参，以下说法正确的是？
+   A  通过props可以实现子向父传参
+   B  可以通过子级调用父级组件的props属性实现子向父通信
+   C  通过state可以实现子向父通信	
+   D  可以通过constructor实现子向父传参	 B
+11  reducer的返回值须是什么？	
+   A  this.state
+   B  props
+   C  newState
+   D  oldState   C
+12  react中如何实现数据双向绑定的效果？
+   A  受控组件
+   B  非受控组件
+   C  r-model
+   D  v-model	 A
+13  在redux中的combineReducers的作用是什么
+   A  将action执行函数返回一个函数
+   B  将reducer返回的内容改变
+   C  将reducer的值修改	
+   D  把一个由多个不同 reducer 函数作为 value 的 object，合并成一个最终的 reducer 函数			D
+14  redux中createdStore方法创建的store是一个对象，包含以下哪些方法？
+   A  getState()
+   B  dispatch(action)
+   C  subscribe(listener)	
+   D  replaceReducer(nextReducer)	 ABCD
+15  connect方法接受的参数都有哪些？
+   A  [mapStateToProps(state, [ownProps]: stateProps)]（类型：函数）
+   B  [mapDispatchToProps(dispatch, [ownProps]): dispatchProps]（类型：对象或函数）
+   C  [mergeProps(stateProps, dispatchProps, ownProps): props]（类型：函数）
+   D  [options](类型：对象)	 ABCD
+16  不可以在子组件中直接修改props 	A
+17  当shouldComponentUpdate生命周期返回false，props发生改变，视图会重新渲染   B
+18  路由中<Switch>组件下的子节点只能是 <Route> 或 <Redirect> 元素	 	A
+19  推荐开发者滥用state，过多的内部状态会让数据流清晰，程序变得好维护	  B
+20  react通过es5的get  set 方法来自动处理state的变更	 	B
+21  react中findDOMNode(组件实例)函数返回的的是_________  
+     组件实例对应的跟节点dom
+22  react中使用___________绑定事件，并且没有兼容问题
+     合成事件
+23  在react中高效的渲染效率是因为使用了_________ 
+     虚拟dom
+24  redux中添加中间件使用__________________ 
+     applyMiddleware
+25  将拆分后的reducer 函数进行合并使用 __________
+    combineReducers
+26  React的特点是函数式编程和
+   A  MVVM	
+   B  单向数据流	
+   C  脏检查)	
+   D  双向绑定   B
+27  redux中  (state, action) => state 这样的函数是用来做什么的 
+   A  action	
+   B  store	
+   C  reducer	
+   D  react	 C
+28  "为了实现异步action应该使用下面那个中间件
+知识点：
+   A  redux-logger	
+   B  redux-logge	
+   C  redux-thunk	
+   D  react-thunk	 C
+29  react存在期有几个生命周期函数   A  2	B  3	C 4	D 5	 D
+30  react中ref作用在组件上返回的值是什么？
+   A  组件dom
+   B  组件虚拟don
+   C  组件实例
+   D  组件的state   C
+31  ReactDOM.render()的第二个参数是; 
+   A  dom元素
+   B  react组件
+   C  匹配的原生dom对象
+   D  文字	 C
+32  在react中componentWillUnmount是用来做什么的？
+   A  组件初始化
+   B  组件更新
+   C  组件销毁
+   D  组件缓存   C
+33  用于将react组件转为 HTML 语言，并插入指定的 DOM 节点，的方法是？
+   A  组件中的render生命周期
+   B  ReactDOM.render()
+   C  el属性	
+   D  mount()方法	 B
+34  下面那些属于前端框架 
+   A  jquery	
+   B  react	
+   C  iscroll	
+   D  vue	 BD
+35  redux的作用描述正确的是 
+   A  统一管理数据
+   B  提升运行性能
+   C  减少组件创建
+   D  可以单独使用	 AD
+36  react中在jsx上可以使用过滤器  	B
+37  react中可以创建计算属性  	B
+38  react组件和redux连接需要使用connect函数将state和dispath传递到组件的state上   	B
+39  react中的dom全部是通过虚拟dom映射产生的    	A
+40  PropTypes属性，是用来验证组件实例的属性是否符合要求的一个利器    A

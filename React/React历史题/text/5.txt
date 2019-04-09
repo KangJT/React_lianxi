@@ -1,0 +1,21 @@
+<button onclick="clickFn"></button>domo0级绑定事件,如果改成react合成事件是__________________  知 <button onClick={clickFn}></button>
+react合成事件中使用________________阻止默认行为,     preventDefault
+react合成事件回调函数可以通过__________和_________实现this绑定,   bind， 箭头函数
+js中改变this指向可以使用____________________       call, apply, bind
+react中如果添加原生事件应该在________________________生命周期中执行,   componentDidMount
+<b onClik={clickFn}>点我</b> 中clickFn函数中的this的值是， 	window	b 标签	组件实例	undefined			D
+react中绑定事件处理函数中的this可以使用,  知识点：事件处理 来源：大纲	call	apply	bind	以上都不对			C
+react合成事件如何销毁,  知识点：事件处理 来源：大纲	removeEventListener() 	detachEvent()	remove()	自动销毁			D
+组件里面绑定的合成事件想要通过 e.stopPropagation() 来阻止事件冒泡到 document如何解决    
+  e.stopPropagation()	e.nativeEvent.stopImmediatePropagation()	return false	e.stopPropagation()			B
+reac合成事件相比dom原生事件的优点是：知识点：事件处理 来源：大纲	兼容性好	写法简单	没区别	api丰富			A
+属于react事件系统的有哪些？	事件删除	事件等待	事件注册	冒泡			C
+以下什么方法可以阻止事件冒泡	event.preventDefault	event.stopPropagation	event.stop	event.type			B
+以下不属于react事件系统的是？	事件注册	事件存储	事件执行	事件委托			D
+以下哪些事件类型在react中可以使用	合成事件	原生事件	onChangStateSuccess	onChangStateError			AB
+常用事件有哪些？	键盘事件	焦点事件	鼠标事件	表单事件			ABCD
+react合成事件，事件名称必须驼峰命名   A
+react合成事件可以使用return false阻止事件默认行为  	B
+react中的合成事件参考了dom0级事件的调用形式 A
+React事件系统包括事件注册，事件存储和事件执行三大部分 A
+react在DOM事件体系基础上做了很大改进，减少了内存消耗，简化了事件逻辑，并最大化的解决了IE等浏览器的不兼容问题。B

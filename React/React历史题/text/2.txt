@@ -1,0 +1,43 @@
+ react定义组件有_________种方式，知识点：react组件 来源：大纲		3
+定义组件最简单的方式是_____________，知识点：react组件 来源：大纲	 函数式
+函数组件接收一个_______参数，返回________，知识点：react组件 来源：大纲	 props，组件
+定义一个名字为List的函数组件，调用的时候应该__________________方式去写，知识点：react组件 来源：大纲	 <List />
+在自定义组件上写的元素属性，在组件内部称为____________，知识点：react组件 来源：大纲	 props
+react无状态组件是指什么？	创建纯展示组件，这种组件只负责根据传入的props来展示，不涉及state操作	不可以接受props	不可以使用jsx语法	不可以使用条件判断	A
+react定义组件常用的有几种方式	3	2	1	4			B
+react的数据流方式是什么？	单向数据流	双向数据流	没有规定数据流方式	都不对			A
+props和state描述正确的是？	尽可能使用props当做数据源，state用来存放状态值	不必区分，都是操作数据	可以直接使用this.props修改内容	直接可以使用this.state修改数据			A
+对于组件数据通讯描述正确的是	父组件通过state传递给子组件	父组件通过props传递给子组件	父组件通过setstate传递给子组件	子组件通过修改props更新父级参数			B
+如何在class 组件形式中定义state	默认生成	getInitialState                  	getDefaultState	constructor中直接设置this.state			D
+如何在class组件形式中定义默认的props	默认生成	componentName.defaultProps = {}	getDefaultProps	defaultProps			B
+class 定义的组件中某个方法里默认打印this结果是什么	undefined	not definde	react.component类	react			C
+无状态组件的特点？	组件不会被实例化，整体渲染性能得到提升	组件不能访问this对象	组件无法访问生命周期的方法	无状态组件只能访问输入的props，同样的props会得到同样的渲染结果，不会有副作用			ABCD
+以下属于react定义组件方式的有？	函数式的无状态组件	es5原生方式react.createClass	es6形式的extends react.component	const			ABC
+react中可以使用$parent获取到父组件，知识点：react组件 来源：大纲							B
+react中组件内部状态需要写到data里面，知识点：react组件 来源：大纲							B
+react组件定义的时候需要首字母大写，知识点：react组件 来源：大纲							A
+?props是property的缩写，可以理解为HTML标签的attribute。							A
+react默认是单向数据流							A
+react专注于视图层的处理							A
+
+在react中如果需要给组件添加状态，则需要使用_______________来添加，  state
+在react组件中jsx 写在______________方法里 	render
+在react中修改状态使用_____________________， 	setState()
+class创建组件需要继承____________ 	react.component
+es6中继承需要通过______关键字		extend 
+react中组件的数据传递， state	data	props	本地存储			A
+react中组件元素定义的规则是，知识点：react组件 来源：大纲	首字母小写	首字母大写	命名单词直接使用－分割	组件名称以数字开头			B
+如果一个列表没有行为，没有状态，应该使用那种组件定义的方式，知识点：react组件 来源：大纲	class定义	函数定义	creatClass定义	以上都不对			B
+在react中数据流动是什么规则，知识点：react组件 来源：大纲	单项数据流	双向数据绑定	函数传参	data传参			A
+react中组件内部状态是，知识点：react组件 来源：大纲	props	data	state	start			C
+es6中定义静态属性使用，知识点：react组件 来源：大纲	static 	this.defaultProps={}	this.props={}	this.default={}			A
+封装组件的目的是为了   知识点：react组件 来源：大纲	解耦页面逻辑，提高工作效率	提高工作难度	将页面复杂化	丰富html元素			A
+下面关于组件定义规范描述错误的是，知识点：react组件 来源：大纲	基本的封装特性	简单的生命周期	明确的数据流动	指令优化			D
+无状态组件的特点？	组件不会被实例化，整体渲染性能得到提升	组件不能访问this对象	组件无法访问生命周期的方法	无状态组件只能访问输入的props，同样的props会得到同样的渲染结果，不会有副作用			ABCD
+react组件中包含哪些内容，知识点：react组件 来源：大纲	props	state	生命周期	指令			ABC
+不可以使用this.props直接修改props，因为props是只读的							A
+每个组件都有属于自己的state							A
+state和props差异不大，可以不用区分设置							B
+修改当前组件的state时必须使用setstate							A
+react中可以使用指令控制dom的行为							B
+react专注于视图层的处理							A

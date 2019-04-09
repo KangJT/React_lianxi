@@ -1,0 +1,46 @@
+在react中路由用来做路由跳转的组件是__________  知识点：路由 来源：大纲	 Link
+react中用来配置路由规则的组件是___________ 知识点：路由 来源：大纲	 Route0
+.在react 中用来做路由重定向的是__________  知识点：路由 来源：大纲	 Redirect
+在react网页中用来做路由的模块包是________________________ 知识点：路由 来源：大纲	 react-router-dom
+在react中使用History h5的history 做路由应该使用_____________________知识点：路由 来源：大纲	 <BrowserRouter>
+渲染与位置匹配的第一个子元素<Route> 或 <Redirect> 使用   Route	Redirect	Switch	HashRouter			C
+在redux中用dispatch方法属于谁的方法  知识点：redux 来源：大纲	store实例	actions	reducers	state			A
+在redux中监听state的数据的改变使用 	getState() 	dispatch(）	subscribe()	state()			C
+dispatch方法中传递的是什么内容  	action	reducers	listener	actions			A
+在react路由link组件中那个属性用来控制路由的跳转  知识点：路由 通信来源：大纲	to	path	exact	render			A
+在react路由中用来指定重定向的组件是   ：知识点：路由 来源：大纲	Redirect	Switch	Link	Route			A
+更新state的操作属于下列谁的工作？	action	reducer	mutations	actiontype			B
+以下什么选项为action执行函数必须要有的内容	data	params	type	id			C
+下面那些方法是属于store的方法    知识点：redux 来源：大纲	getState()	dispatch(action)	subscribe(listener)	createStore()			ABC
+下面那些组件是路由相关组件  知识点：路由态 来源：大纲	Switch	Redirect	Router	Route			ABD
+redux的三大原则是哪些？	单一数据源	State 是只读的	使用纯函数来执行修改	数据双向绑定			ABC
+react中路由的配置是通过组件完成的     	A
+react中路由的配置是通过Route组件完成的 A
+redux中使用store是使用createStore创建的  	A
+action内可以做state更新	 	B
+reducer的工作就是如何更新state	 	A
+
+
+react路由Route中配置路由对应的渲染组件使用_______属性     知识点：路由 来源：大纲		                 component
+路径与location.pathname完全匹配时才匹配，应在路由上添加______________  知识点：路由 来源：大纲   exact={true}
+在redux使用___________方法创建store      知识点：redux 来源：大纲	 createStore
+为什么要使用redux______							管理复杂的状态
+redux中单一数据源是指什么？	 整个应用的state被储存在一棵objecttree中，并且这个objecttree只存在于唯一一个store中
+reducer的作用是什么	执行的动作类型	更新state	修改state	跳转路由			B
+以下哪些选项为reducer的参数？	state	id	url	type			A
+Array.from接收几个参数？	2	3	4	1			B
+Object.assign()方法如何不改变原对象	将第一个参数给空对象	将最后一个参数给空对象	赋给一个变量	第一个参数设为true			A
+reducer的返回值必须为什么？	函数	对象	新的state	旧的state			C
+在redux中combineReducers的作用是什么？	将action执行函数返回一个函数	将reducer返回的内容改变	将reducer的值修改	把一个由多个不同 reducer 函数作为 value 的 object，合并成一个最终的 reducer 函数			D
+redux中store是如何生成的	内置的	通过createdata（）创建	通过createStore()创建	通过create创建			C
+在react中组件想要获取到路由信息如何操作	直接读取location	通过withRouter高级组件扩展属性后读取	直接读取match	直接读取history			B
+redux中包含哪些内容？	action	reducer	mutations	组件			AB
+一般action要注意的问题是哪些？	action内必须有一个type字段	还需要一个参数	action可以返回一个字符串	action可以返回一个数组			AB
+以下属于reducer禁止操作的事情有哪些？	修改传入参数	执行有副作用的操作，如 API 请求和路由跳转	调用非纯函数，如 Date.now() 或 Math.random()	更新state			ABC
+reducer内可以执行路由跳转	 B
+reducer不能直接修改state	 	A
+通过match 对象可以获取 <Route path> 如何与 URL 匹配的信息	 	A
+Redirect组件用来设置重定型功能	 	A
+"<Route path=""/about"" component={About}/>
+<Route path=""/:user"" component={User}/>
+如果访问/about只会渲染About组件"	B

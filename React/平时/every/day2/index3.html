@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const app = {
+            fns: [],
+            callback(ctx) {
+                console.log(ctx, 3)
+                console.log(ctx);
+            },
+
+            use(fn) {
+                /* TODO */
+                // console.log(app.fns.push(fn));
+                app.fns.push(fn);
+            },
+
+            go(ctx) {
+                /* TODO */
+                let funs = app.fns;
+                let init = 0;
+                let funsArr = [];
+                funs.forEach((item, index) => {
+                    funsArr[init] = () => {
+                        init++;
+                    }
+                    if (index === init) {
+                        item(ctx, funsArr[init]);
+                    }
+                    // item(ctx, funsArr[init]);
+                })
+            }
+        }
+
+        app.use((ctx, next) => {
+            ctx.name = 'Lucy'
+            console.log(1)
+            next()
+        })
+
+        app.use((ctx, next) => {
+            ctx.age = 12
+            console.log(2)
+            next()
+        })
+
+        app.use((ctx, next) => {
+            console.log(`${ctx.name} is ${ctx.age} years old.`) // => Lucy is 12 years old.
+            next()
+        })
+
+        // ... 任意调用 use 插入中间件
+
+        app.go({}) // => 启动执行，最后会调用 callback 打印 => { name: 'Lucy', age: 12  }
+    </script>
+</body>
+
+</html>

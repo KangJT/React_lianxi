@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#root{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column
+}
+.header{
+    height: 45px;
+    background: #D7423A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+    padding: 0 10px;
+    
+}
+.header i{
+    font-size: 20px;
+    display: inline-block;
+}
+.header h6{
+    font-size: 16px;
+    font-weight: normal
+}
+.icon-daishouhuo-01{
+    padding-right: 20px;
+}
+.section{
+    flex:1;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.footer{
+    width: 100%;
+  
+   height:50px;
+   display: flex;
+   justify-content: space-around;
+   align-content: center;
+   background: #262629;
+   text-align: center;
+}
+.footer a,.footer i {
+    color:white;
+    font-size: 12px;
+}
+.footer i{
+    margin-top: 10px;
+    display: inline-block;
+}
+.footer a:hover{
+    color:red;
+}
+.footer dl:hover{
+    color: red;
+}
+.nav{
+    width: 100%;
+    display: flex;
+    padding:  13px;
+}
+.nav-right{
+    display: flex;
+}
+.nav-left{
+    width: 150px;
+}
+.p1 span{
+    font-size: 20px;
+}
+.p1 span:nth-child(2){
+    color:red;
+}
+.p2{
+    color:red;
+    line-height: 35px;
+}
+.nav-right a{
+    display: block;
+    color:gray;
+    line-height: 35px;
+}
+.nav-right i{
+    font-size: 23px;
+    color: red;
+}
+.nav-right{
+   flex:1;
+   text-align: center;
+    justify-content: space-around;
+}
+.h3{
+    width: 100%;
+    height: 10px;
+    background: #efefef;
+}
+.ol{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+    color:gray;
+    font-size: 14px;
+}
+.ol li:first-child{
+    width: 130px;
+}
+.ol i{
+    padding-left: 15px;
+}
+.add{
+    width: 100%;
+    position:absolute;
+    left:35%;
+    bottom:50%;
+}
+.add p{
+    font-size: 14px;
+    color:gray;
+    line-height: 35px;
+}
+.add-inner{
+    line-height: 110px;
+    text-align: center;
+    width: 110px;
+    height: 110px;
+    color:red;
+    border:1px solid red;
+}
+.add-inner i{
+    font-size: 50px;
+}
+.box{position: relative;}
+.head{
+    position: relative;;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 45px;
+    background: #D7423A;
+    display: flex;
+    align-items: center;
+    color:white;
+    padding: 0 10px;
+    font-size: 26px;
+    justify-content:space-between;  
+}
+.input{
+    width: 100%;
+    height: 50px;   
+    background: #D7423A;
+    padding: 0 10px;
+
+}
+.input input{
+    width: 100%;
+    background: white;
+    height: 40px;
+    border-radius: 10px;
+    border:0;
+    outline:0;
+    margin-top: 5px;
+}
+.sec-ul{
+    padding: 0 10px;
+    
+}
+.sec-ul li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+}
+.sec-ul li span:nth-child(3){
+    color: red;
+}
+.section-ul{
+    padding: 0 10px;
+}
+.section-ul li {
+    display: flex;
+    justify-content:space-between;
+    height: 65px;
+    align-items: center;
+}
+.section-ul li span{
+    color: lime
+}
+.title{
+    width: 150px;
+}
+.title p{
+    color:gray;
+}
+.edit{
+    display: flex;
+align-content: center;
+}
+.in{
+    margin-top: 18px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border:1px solid gray;
+    background: white;
+  margin-right: 15px;
+}
+.zi1{
+    margin:10px;
+}
+.foot{
+    width: 100%;
+    height: 45px;
+    background: #efefef;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: white;
+}

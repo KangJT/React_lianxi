@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+        function content(cbk) {
+            let list={
+                'A':['澳大利亚','澳洲','埃及'],
+                "B":['北京','北极','贝特加'],
+                "C":['曹国','朝朝','曹操']
+            }
+           let res=cbk(list)
+            return (Compone)=>{
+                return class extends React.Componenent{
+                    render(){
+                        return <Compone/>
+                    }
+                }
+            }
+        }
+        class Alist extends React.Componenent{
+            render(){
+                console.log(this.props)
+                return <div></div>
+            }
+        }
+       let NewDom= content(
+            (list)=>{
+               console.log(list)
+               return list['A']
+            }
+        )(Alist)
+        ReactDOM.render(
+           <NewDom/>,
+           document.getElementById('box')
+        )
+    </script>
+</body>
+</html>

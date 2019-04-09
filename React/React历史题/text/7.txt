@@ -1,0 +1,94 @@
+在react中使用class类创建的组件中使用_______________定义props的默认值  知识点：组件通信 来源：大纲	static defaultProps = {}
+react中通过_____________获取组件嵌套的内容 知识点：组件通信 来源：大纲	 props.children
+react中通过_______方法改变state的值,  知识点：组件状态 来源：大纲	 setState()
+react中高阶组件使用_________来创建   知识点：高阶组件 来源：大纲	 函数
+在react中props和state是___________优先初始化,    props
+在react中ref值是字符串的时候作用在组件上通过refs获取返回的是   组件实例	组件对应的dom	组件元素	document	  A
+在react中单项数据流指的是   知识点：组件状态 来源：大纲	props数据传递	state内部状态	组件生命周期	组件式开发流程	 A
+在高阶组件上使用ref，通过refs获取到的是	包裹组件的实例	外层容器组件实例	dom元素	无法获取，高阶组件没有实例			B
+父子组件通信的场景是
+     
+子组件使用父组件的属性	
+父组件使用子组件的属性	
+组件的实例传递	
+以上都不对  
+A
+
+react中跨级组件通信使用什么方式最便捷   
+
+props	
+state	
+context	
+data			
+C
+react中组件嵌套是使用props中那个属性获取嵌套内容的   
+
+child	
+node	
+children	
+childrens			
+C
+以下对proptypes验证描述正确的是？
+	
+可以检测任意类型	
+如果父组件没有传递props，proptypes检测会发生在defaultprops之后	
+如果父组件没有传递props，proptypes检测会发生在defaultprops之前	
+不可以定义默认值	
+		
+B
+proptypes检测是否为一个元素使用什么方法？
+	
+PropTypes.element	
+PropTypes.text	
+PropTypes.nodes	
+PropTypes.el			
+A
+在react中高阶组件的作用是  知识点：事件 来源：大纲
+	
+属性代理	
+组合组件	
+组件嵌套	
+组件通信			
+AB
+下面内容那些属于react生命周期函数  知识点：生命周期 来源：大纲
+	
+componentWillMount	
+ref函数	
+render	
+componentDidMount 
+ACD
+
+组件的props可以传递  知识点:props 来源：大纲	
+表达式	
+组件元素	
+字符串	
+js语句			
+ABC
+react中高阶组件就是使用一个函数对组件进行二次封装，返回一个新的组件 知识点：高阶组件 来源：大纲 	A
+react中props的值可以是一个组件元素   知识点：props 来源：大纲  A
+react中state值的改变有多种方法      知识点：组件状态 来源：大纲	  B
+defaultProps比proptypes执行的慢		 B
+从reactv15.5开始react.proptypes已经弃用，建议使用prop-types库	 A
+
+
+高阶组件（HOC）是 React 中用于_________的高级技术 知识点：高级组件 来源：大纲	 重用组件逻辑
+在组件组合的时候如果我们需要将不同的内容传递到父组件的指定位置使用_____________传递  	props
+在react中最推荐的组件的创建方式是_________________知识点：组件创建 来源：大纲							函数创建
+requiredFunc: PropTypes_____补全代码实现验证必须为函数并且不能为空							.func.isRequired
+react中高级组件接受___________返回_________							组件，扩展后的组件
+JSX通过Babel 转译器转换成一个？，知识点：jsx 来源：大纲	html结构	css	es6中的class	React.createElement() 的方法调用。			D
+React中提高dom渲染性能的方案是使用？，知识点：jsx 来源：大纲	虚拟dom	组件	样式元素	组件元素			A
+组件的props默认值如何设置	defaultprops	initprops	initialprops	constructor			A
+虚拟元素可以理解为真实元素的对应，它的构建与更新是在哪里完成的？	内存中	硬盘中	后台服务器	nodejs			A
+react中创建的虚拟元素可以分为几类？	2	1	3	4			A
+用javascript描述html嵌套组合元素时，可以简单地被表示成什么？	json对象	字符串	symbol对象	数组			A
+如何渲染使用javascript对象表示html层层嵌套的元素?	使用递归渲染	使用阶乘渲染	使用拼接字符串	使用diff算法渲染			A
+以下生命周期描述错误的是？	componentWillReceiveProps属于存在期	shouldComponentUpdate属于存在期	componentWillUnmount属于存在期	componentDidUpdate组件更新结束之后执行，在初始化render时不执行			C
+shouldComponentUpdate生命周期描述正确的是？	组件是否应当渲染新的props或state	返回false表示跳过后续的生命周期方法	"在首次渲染期间或者调用了forceUpdate方法后，该方法不会被调用
+"	可以不用指定返回值			ABC
+componentWillReceiveProps生命周期描述正确的是？	组件接收到新的props时调用	并将其作为参数nextProps使用	此时可以更改组件props及state	接收新的state  ABC
+
+
+
+
+

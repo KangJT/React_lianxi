@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #box{
+            width: 100%;
+            height: 50px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+    .left{
+        float: left;
+        font-size: 25px;
+        color: darkgreen;
+    }
+    .right{
+        float: right;
+    }
+    .right li{
+        float: left;
+        margin: 0 7px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <!-- <div class="left">豆瓣</div>
+        <ul class="right">
+            <li>电影</li>
+            <li>图书</li>
+            <li>广播</li>
+            <li>小组</li>
+            <li>按钮</li>
+        </ul> -->
+    </div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">     
+        class HeaderBar extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                name:"豆瓣",
+                list:['ss','sss','sss','sss'],
+                btn:"搜索"
+             }
+           
+            }
+             render(){
+                let {name,list,btn}=this.state;
+                return <div>{name}<NavBar list={list} btn={btn}/></div> 
+             }
+        }
+        
+        class NavBar extends React.Component{
+            constructor(props){
+                 super(props);
+                 this.state={
+                     list:props.list,
+                     btn:props.btn
+                 } 
+            }
+            render(){
+                let {list,btn}=this.state;
+                console.log(btn);
+             return  <div>
+                        <ul>
+                            {list.map((v,i)=>{
+                                return <li key={i}>{v}</li>
+                            })}
+                            
+                        </ul>
+                        <SearchBtn btn={btn}/>
+                    </div>
+                    
+            }
+        }
+        class SearchBtn extends React.Component{
+            constructor(props){
+                 super(props);
+                 this.state={
+                     btn:props.btn
+                 }
+                 console.log(this.state)
+            }
+            render(){
+                let {btn}=this.state;
+                return <span>{btn}</span>            
+            }
+        }
+       ReactDOM.render(
+           <HeaderBar />,
+           document.getElementById('box')
+       )
+      
+    </script>
+</body>
+</html>

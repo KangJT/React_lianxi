@@ -1,0 +1,26 @@
+下包
+js                      @babel/core  @babel/preset-env   babel-loader 
+css                                   css-loader  style-loader 
+img                                    url-loader 
+vue                                    vue
+webpack                           webpack 
+起服务                               webpack-dev-server
+把外部文件添加到html      html-webpack-plugin
+用法   const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+热更新
+ new webpack.HotModuleReplacementPlugin(),
+
+抽离css   要下的包    extract-text-webpack-plugin@next
+               引进去    const CssText = require('extract-text-webpack-plugin');
+用法
+use: CssText.extract({
+                fallback: 'style-loader',
+                use: ['css-loader']
+    })
+plugins: [ new CssText('style.css') ]
+   
+
+package.json中执行webpack命令字段   
+ "build": "webpack --config webpack.dev.js",
+ "dev": "webpack-dev-server --config webpack.dev.js"

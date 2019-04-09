@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="">
+        //查找函数有三个参数。　　value：每一次迭代查找的数组元素。index：每一次迭代查找的数组元素索引。　arr：被查找的数组。
+        //查找数组中对应的索引　　查找目标元素，找到就返回元素的位置，找不到就返回-1。
+        Array.prototype.findIndex = function(callback) {
+            for (let i = 0; i < this.length; i++) {
+                if (callback(this[i])) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+1  在生命周期____________________发起 AJAX 请求？
+    componentDidMount
+2   setState 的第二个参数是______，它的目的是___________	
+    回调函数，state更新完成后的操作
+3  在 React 当中 通过_________区分Element 和 Component ？
+   首字母大小写
+4  _____可以在DOM中的某些元素被增加或删除的时候帮助React快速识别哪些元素发生了变化
+   key
+5  redux中的state需要通过_________才能在组件中访问
+   connect
+6  真实的dom与虚拟dom差别在那里
+   A 没区别	
+   B  一个是原生dom，一个js对象	
+   C  都是对象	
+   D  都是通过浏览器渲染，虚拟dom浏览器也可以渲染    B
+7  react在组件销毁阶段有几个生命周期
+   A  1	B 2	C 3	D 4			A
+8  "this.setState((参数) => ({
+    name: ""mr."" + 参数
+})) 参数是值得什么"
+   A  新的state
+   B  新的props
+   C  原来的state
+   D  原来的props    C
+9  接收到的数据但是不更新组件时用到了那个生命周期
+   A  componentWillMount
+   B  componentDidMount
+   C  shouldComponentUpdate
+   D  render			C
+10  "this.setState({
+    data: datas
+});
+this.setState({
+    data: datas
+});
+render会执行几次？"
+   A  1	B  2	C  3	D  4			A
+11  组件设置默认 props(属性) 使用	
+   A  props	
+   B  defaultProps	
+   C  propTypes	
+   D  setState	 B
+12  constructor中主要是用来？
+   A  建立组件初始 state(状态) 	
+   B  手动调用初始化生命周期	
+   C  定义props默认值	
+   D  定义propstype	 A
+13  "<Parent>
+  <h1>Welcome.</h1>
+</Parent>  在Parent组件内部读取props.children返回的是什么格式的数据"
+   A  object
+   B  Array	
+   C  String	
+   D  null			A
+14  高阶组件的用法有？
+   A  属性代理
+   B  反向继承
+   C  组件组合
+   D  组件创建	 ABC
+15  redux中间件用于处理异步的有？	
+   A  redux-logger	
+   B  redux-thunk	
+   C  redux-promise	
+   D  redux-saga	 BCD
+16  调用一次setState就会立即会触发一次render的说法是否正确？	 B
+17  在React中<tr>元素不可以作为<table>元素的直接子元素?  	A
+18  react中虚拟dom没有提高加载速度? A
+19  react中兼容性问题居多	 B
+20  react在组件中无法直接读取redux的状态	 A
+21  在redux中reducer的功能是_____
+   根据当前触发的action对当前应用的状态（state）进行迭代
+22  在webpack中进行模块引入时，遵循的是______模块化规范	
+     commonJs
+23  请书写代码，配置webpack的入口和输出(入口文件为/src/index.js，输出地址为根目录下的dist文件夹)；
+  "entry: __dirname + ""/src/index.js"",
+    output: {
+        path: __dirname + ""/dist"",
+        filename: ""[name].js"",
+       
+    }"
+24  在redux中通过______派发事件执行对应的state生成操作？
+     dispatch
+25  setState中的第一个参数可以是__________也可以是_________________
+    对象，函数
+26  mapStateToProps描述错误的是？
+   A   如果定义该参数，组件将会监听 Redux store 的变化，只要 Redux store 发生改变，mapStateToProps 函数就会被调用
+   B   如果你省略了state参数，你的组件将不会监听 Redux store	
+   C  只要 Redux store 发生改变，mapStateToProps 函数就会被调用。该回调函数必须返回一个纯对象，这个对象会与组件的 props 合并
+   D  组件接收到新的 props，mapStateToProps 不会被调用	 D
+27  react-router-dom中导航选中激活时候应用的样式名是？
+   A  activeClassName	
+   B  active	
+   C  activeStyle
+   D  isActive	 A
+28  关于Action Creator描述错误的是什么？	
+   A  是一个创建 action 的函数	
+   B  是一个信息的负载	
+   C  action creator 是一个创建 action 的工厂	
+   D  调用 action creator 只会生产 action，但不分发	 B
+29  UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑两者之间通过什么座关联才能获取到数据  
+   A  connect
+   B  state	
+   C  da ta	
+   D  自定义事件	 A
+30  组件在哪里生成虚拟的DOM节点
+   A   componentWillReceiveProps
+   B  render	
+   C  shouldComponentUpdate	
+   D  componentWillUpdate	 B
+31  下面的jsx那个正确的
+   A  <div>1</div><div>2</div>	
+   B  <div><span>1</span><div>
+   C  <div><div>1</div><div>2</div></div>
+   D  <span></span></div><div>	 C
+32  什么属性可以引用组件真正实例？
+   A  ref	
+   B  class	
+   C  id	
+   D  value	 A
+33 mapDispatchToProps描述错误的是？
+   A  接受redux的dispatch方法作为参数
+   B  返回当前组件相关部分的action creater
+   C  只要组件接收到新 props，mapDispatchToProps 也会被调用	
+   D  在这里不可以将action creater与dispatch绑定	 D
+34  下面哪些生命周期方法在组件的生存范围之内只会执行一次
+   A  componentWillMount	
+   B  componentDidMount	
+   C  shouldComponentUpdate	
+   D  render AB
+35  redux有什么缺点 
+   A  一个组件所需要的数据，必须由父组件传过来，而不能像flux中直接从store取
+   B  当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新rende
+   C  增加程序员的负担	
+   D  提升组件的性能   AB
+36  state只关心组件自己内部的状态，props也是 	B
+37  webpack中的loader需要写在plugins配置项中	 B
+38  在webpack可以实现任务集成?  B
+39  react中的setState会造成不必要的渲染 	A
+40  react中组件在卸载的时候会执行卸载的生命周期函数，也会执行ref函数	 A

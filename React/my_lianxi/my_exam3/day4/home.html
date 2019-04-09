@@ -1,0 +1,58 @@
+<div id="box"></div>
+  <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+
+  <script type="text/babel">
+    let{Component}=React;
+        class App extends Component{
+            constructor(props) {
+                super(props);
+                this.state={inpValue:'',xiao:true}
+                this.inputValue=this.inputValue.bind(this)
+            }
+            inputValue(e){
+                this.setState({
+                    inpValue:e.target.value
+                })
+            }
+            shouldComponentUpdate(){
+                this.dBox&&(this.dBox.d2Box.innerHTML=this.inp.value);
+                return true;
+            }
+            clickxiao(){
+                let xiao=this.inp.value==='销毁'?false:true;
+                this.setState({xiao})
+                console.log(this.state)
+            }
+            render(){
+                let {inpValue,xiao}=this.state;
+                return <div>
+                    <input 
+                    name="" 
+                    id="" 
+                    value={inpValue} onChange={this.inputValue} 
+                    className="btn btn-primary" 
+                    type="text"  
+                    ref={(res)=>this.inp=res}/>
+                    <button onClick={()=>{
+                        this.clickxiao()
+                    }}>buttonB</button>
+                    {xiao?<Default ref={(res)=>this.dBox=res}/>:null}
+                </div>
+            }
+        }
+        class Default extends Component{
+            render(){
+                return <div className='active' ref={(res)=>this.d2Box=res}>
+                    
+                </div>
+            }
+        }
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('box')
+        )
+
+  </script>

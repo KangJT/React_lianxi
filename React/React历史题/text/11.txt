@@ -1,0 +1,127 @@
+1  redux中通过______派发事件	 
+    dispatch
+2  reducer的功能是_____
+    根据当前触发的action对当前应用的状态（state）进行迭代
+3  每一个_____都是纯函数，接收一定的输入，必定得到一定的输出
+    reducer
+4  reducer本质是个函数，reducer(previousState,action) => _____   
+    newState
+5  在redux中将多个reducer合并起来使用__________
+    combineReducers
+6  redux提供以下哪个方法会根据reducer生成store
+   A  store
+   B  createStore	
+   C  dispatch
+   D  combineReducers      B
+7  redux应用的顶层组件是什么？接收一个什么作为props?
+   A  <Provider>,store	
+   B  <Provider>,props	
+   C  <App>,props	
+   D  <App>,store	 A
+8  组件中获取store数据的方法是	
+   A  connect()
+   B  dispatch()
+   C  reducer
+   D  store	   A
+9  对于ref属性描述正确的是？
+   A  添加到Compoennt实例上获取到的是dom
+   B  添加到dom上获取到的是dom	
+   C  添加到dom上获取到的是component实例
+   D  替换值	B
+10 不能完成对象深拷贝的方法的是？
+   A  JSON.stringify(JSON.parse(obj))
+   B  $.extend()
+   C  Object.assign()
+   D  Object.create()	 C
+11 在react中实现子向父传参，以下说法正确的是？
+   A  通过props可以实现子向父传参
+   B  可以通过子级调用父级组件的props属性实现子向父通信
+   C  通过state可以实现子向父通信	
+   D  可以通过constructor实现子向父传参 B
+12 在redux中reducer的返回值必须是什么？
+   A  函数	
+   B  对象	
+   C  新的state	
+   D  旧的state  C
+13 redux中使用combineReducers做什么
+   A  将action执行函数返回一个函数
+   B  将reducer返回的内容改变
+   C  将reducer的值修改	
+   D  把一个由多个不同 reducer 函数作为 value 的 object，合并成一个最终的 reducer 函数	 D
+14 createdStore方法创建的store是一个对象，它包含以下哪些方法
+    A  getState()
+   B  dispatch(action)
+   C  subscribe(listener)	
+   D  replaceReducer(nextReducer)   ABCD
+15 redux中都包含了以下哪些内容？
+   A  action	
+   B  reducer
+   C  mutations	
+   D  组件	 AB
+16 在组件中不允许直接修改props   A
+17 state和props一样	 B
+18 setState有第二个参数，是callback   A
+19 setState会造成不必要的渲染	  A
+20 redux中的数据在组件中通过setState修改	 B
+21 redux的三大原则是__________  
+   单一数据源, State 是只读的, 使用纯函数来执行修改
+22 ___________是一个用于描述已发生事件的普通对象   
+  action
+23 Reducer接收先的参数有__________  
+   state 和 action
+24 Reducer返回的是__________________ 
+   新的 state
+25 redux和react链接在一起需要使用__________模块包 
+    react-redux
+26 connect函数中如果不传递参数表示
+   A  只注入 dispatch，不监听 store
+   B  注入 dispatch，监听 store
+   C  监听 store
+   D  以上都不对   A
+27 在redux中dispatch方法的来源是    
+   A  store实例
+   B  actions
+   C  reducers
+   D  state	A
+28 在react-redux中Provider组件需要传递什么内容才能将store和react组件联系起来
+   A  store	
+   B  actions
+   C  reducers
+   D  state	 A
+29 在redux中合并多个reducer使用
+   A  createStore	
+   B  combineReducers
+   C  applyMiddleware
+   D  bindActionCreators    B
+30 改变 store 内 state 的惟一途径是
+   A  操作state原来的值
+   B  dispatch 一个 action
+   C  执行action函数
+   D  执行subscribe函数 B
+31 连接 React 组件与 Redux store需要使用什么函数 
+   A  connact
+   B  connect
+   C  concat	
+   D  context   B
+32 在react-router-dom中用来做重定向的组件是 
+   A  Redirect
+   B  Switch
+   C  Link
+   D  Route   A
+33 在react中connect函数中第几个参数可以获取到state	
+   A  1     B 2      C 3	  D 4     A
+34 react-redux提供下面那些东西 
+   A  combineReducers()
+   B  applyMiddleware()
+   C  connect()
+   D  Provider  CD
+35 redux连接到 React我们需要  
+   A  渲染之前将根组件包装进 <Provider>
+   B  通过 react-redux 提供的 connect() 方法将包装好的组件连接到Redux
+   C  定义reducer
+   D  定义action    ABCD
+36 redux只能用于react    B
+37 在react中react-redux只能用于react    A
+38 react-redux通过connect可以连接react组件和redux     A
+39 redux中在使用connect管理组件的时候，第一个回调函数中可以获取到state    A
+40 在redux中reducer中使用actions.type判断需要执行的actions逻辑，生成新的state	 A

@@ -1,0 +1,24 @@
+react中ref的值可以是_________和___________,  知识点：dom操作 来源：大纲		 	字符串，回调函数
+当组件加载到页面上之后，你可以通过 _________ 提供的 _________方法拿到组件对应的 DOM 元素。,  知识点：dom操作 来源：大纲		react-dom, findDOMNode()
+this.refs可以获取通过_________属性定义的dom,  知识点：dom操作 来源：大纲		ref
+ref可以作用到___________和____________,  知识点：dom操作 来源：大纲     dom元素， 非函数创建的组件元素
+ref 不能设置在____________上,  知识点：dom操作 来源：大纲	   函数创建的组件元素
+ReactDOM.findDOMNode(this)返回的是,  知识点：dom操作 来源：大纲	组件实例相对应的DOM节点	获取到当前的对象	获取到body	获取到当前组件实例	A
+ref的值如果是回调函数的话，那么这个回调函数会在什么时候执行,  知识点：dom操作 来源：大纲	通过refs调用的时候	render后	render之前调用	组件卸载前			B
+ref的值如果是回调函数（使用箭头函数）的话，那么这个回调函数内部的this指的是,  知识点：dom操作 来源：日考	window	当前dom	当前组件实例	react－dom			C
+把ref放到原生的DOM组件中，我们可以通过refs获取到,  知识点：dom操作 来源：大纲	DOM节点	组件实例	组件对象	组件原型			A
+findDOMNode是那个包中的方法,  知识点：dom操作 来源：大纲	react	react-router	react-dom	Component			C
+在react在jsx表达式中循环输出jsx可以使用,  知识点：dom操作 来源：大纲	for	map	filter	each			B
+以下对于findDOMNode说法正确的	当参数是DOM，返回值就是该DOM	当参数是Component获取的是该Component?	当参数是Component获取的是该父级组件?	null			A
+以下对于ref说法正确的	添加到Compoennt实例上获取到的是dom	添加到dom上获取到的是dom	添加到dom上获取到的是component实例	替换值			B
+react中获取dom有哪些方法	ref	findDOMNode	unmountComponentAtNode	publish			AB
+ref可以使用下面那种方法调用,  知识点：dom操作 来源：大纲	this.refs['refname']	this.refs.refname	this.ref	refs	 AB
+react中可以通过findDOMNode(组件实例) 返回对应dom,   A
+ref的值可以是数字,  	B
+通过refs可以获取使用ref设置属性的dom,  	A
+ref和findDOMNOde没什么区别都是获取dom 	B
+refs可以拿子子组件的props/state/方法 A
+
+
+
+

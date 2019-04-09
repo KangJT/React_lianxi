@@ -1,0 +1,47 @@
+受控组件在input输入事件处理函数中通过______________获取input元素    event.target
+在react当中，<textarea> 元素通过_______________定义它的文本内容     value
+在select中selected属性是定义被选中状态的，那么在react受控组件中是根据__________元素的___________属性控制  select, value
+如果让表单数据由 DOM 处理时，替代方案为使用___________________    非受控组件   
+值由React控制的输入表单元素称为_________________  受控组件
+在react中如何将input输入的值和state状态绑定到一起     v-model  ng-model    受控组件   r-model   C
+在react合成事件中的事件命名规则是   首字母大写	使用驼峰命名	使用html原生事件名称	数字＋字母组合	B
+在react中textarea使用什么控制文本框内容   text	html	value	innerText			C
+在react中读取state中value的值应该使用    this.value	this.props.value	this.state.value	以上都不对   C
+在react受控组件中同时处理多个输入元素在事件中如何判断     使用value值判断  使用state属性判断	使用event.target.name判断	以上都不对  	C
+react可以使用什么获取input元素，并且保存起来：知识点：组件状态 来源：大纲	ref	child	el	以上都不对			A
+使用es6 class类定义组件的时候 constructor函数中必须要写什么？	super()	this.state	this.props	this.defaultProps			A
+使用以下哪个组件可以实现对当前所有子路由的遍历，并且对第一个匹配到的路径路由进行渲染	router	Link	Switch	exact 			C
+在react中ref属性的值可以是    知识点：组件状态 来源：大纲	string	函数	表达式	语句			AB
+react中针对于表单的处理有  知识点：组件状态 来源：大纲	受控组件	非受控组件	model	scope			AB
+以下属于react-router-dom控制路由的组件有	Switch 	Route 	Link 	router	 ABC
+react 中textarea的值是通过text绑定的state值的同步   	B
+react中select中通过selected设置select默认值绑定到state中   知识点：props 来源：大纲							A
+react中可以通过onchange事件绑定input的输入同步    B
+Router组件可以使用嵌套的写法	 B
+Switch组件的作用是输出多个组件   B
+
+
+在react中受控组件中input元素的vaule应该是______________________中的属性   知识点：组件状态 来源：大纲	state
+受控组件中input默认值应该是____________________,  知识点：dom操作 来源：大纲     state中的默认值
+非受控组件中的默认值应该使用_____________定义    知识点：组件创建 来源：大纲	defaultValue
+"<Route exact path='/' render={() => (
+    
+)}/>补全render函数内的代码实现，默认页面的跳转"	<Redirect to='path' />
+____可以获取当前路由path中包含的额外数据参数	 match.params
+exact关键字的作用是什么？	排除当前路由	做路由的唯一匹配	是否显示当前路由	模糊匹配			B
+以下属于路由跳转正确的方式有？	<router-link to=“/path” />	<link to=“/path” />	ui-sref=“/path”	<router-link to={“/path”} />	B
+<Route>组件如何匹配到路由之后渲染某个组件	Component属性	path属性	link属性	src属性			A
+<Route>组件render属性的作用是什么？	渲染一个优先级比component高的组件	渲染一个优先级比component低的组件	可以对组件做一些自定义操作	组件中可以没有render方法			C
+想获取当前匹配的路由的一些信息如何获取	match对象	router对象	route对象	$router			A
+react中路由规则使用什么配置	Router	Route	Link	Router-view			B
+非受控组件中为什么利用ref获取input元素	因为必须使用ref	因为ref可以用来获取dom	因为ref可以获取dom，并且如果传递函数的话会自动执行	应ref本身存在的意义就是为了非受控组件而设计的			C
+react中路由对应的组件会渲染在页面的什么位置	router-view的位置	Router的位置	Route组件的当前规则的位置	替换整个页面			C
+history 对象有哪些属性和方法？ 	location	replace	go 	 push			ABCD
+match 对象有哪些属性？	 params	isExact	src	path			ABD
+Route 组件可以接收以下哪些props？ 	component	render	src	href			AB
+exact关键字的作用是做路径的唯一匹配 	A
+在react中受控组件的原理和vue中v-model的原理一样	A
+使用defaultProps实例属性可以定义prop的默认值	B
+ defaultValue="Bob"
+          type=""text""
+          ref={(input) => this.input = input} />这个是受控组件"    B

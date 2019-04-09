@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function inculdeArr(arr, conf) {
+            conf.forEach(element => {
+                let {
+                    index,
+                    content
+                } = element;
+                arr[index] = [content, arr[index]];
+            });
+            console.log(arr.flat()); // ["section1", "item1", "item2", "section2", "item3", "item4", "item5"]
+        }
+        inculdeArr(['item1', 'item2', 'item3', 'item4', 'item5'], [{
+            content: "section1",
+            index: 0
+        }, {
+            content: "section2",
+            index: 2
+        }]);
+
+        // let a1 = arr1.keys();
+        // for (let index of a1) {
+        //     console.log(index) 
+        // }
+        // let a2 = arr2.values();
+        // for (let index of a2) {
+        //     console.log(index.content)
+        //     console.log(index.index)
+        // }
+        // arr2.forEach(function(item, num) {
+        //     arr1.splice(item.index + num, 0, item.content)
+        // })
+        // console.log(arr1);
+    </script>
+</body>
+
+</html>

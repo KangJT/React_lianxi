@@ -1,0 +1,130 @@
+1  _______是构成 React 应用的最小单位
+   元素
+2  自定义组件将属性作为单个对象传递给该组件，这个对象 称之为____
+     props
+3  使用class创建的组件初始化的state应该写在____________中 
+     constructor
+4  state改变需要通过___________  
+     this.setState()
+5  合并对象可以使用es6种object提供的 _________方法 
+    assign
+6  以下选项中对于受控组件说法正确的是？
+   A  你应该始终传一个value属性进去，并且注册一个onChange的辅助方法来让组件变得可变
+   B  一个受控的组件自己维护自己的state
+   C  没有value属性
+   D  没办法更改value	   A
+7  调用 setState() 时，React 会不会将你提供的对象合并到当前状态?
+   A  会
+   B  不会
+   C  有时候会
+   D  有时候不会    A
+8  什么通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问？
+   A  state
+   B  props
+   C  value
+   D  defaultValue	 A
+9  React事件绑定属性的命名采用什么方式?
+   A  纯小写	
+   B  纯大写	
+   C  驼峰规则
+   D  烤肉串模式    C
+10 react中用于定义组件的方式有几种
+   A  1
+   B  2
+   C  3
+   D  4	 C
+11 react中的无状态组件是指什么样的组件？
+   A  不能接收props
+   B  创建纯展示组件，这种组件只负责根据传入的props来展示，不涉及state操作
+   C  有state状态
+   D  不能使用jsx语法 	 B
+12 修饰器（Decorator）函数描述正确的是？
+   A  用来修改类的行为	
+   B  不能修改类的行为	
+   C  用来修改函数
+   D  用来修改函数的行为   A
+13 redux中可以将多个reducer合并使用下面那个方法？
+   A  createStore
+   B  combineReducers	
+   C  dispatch
+   D  subscribe   B
+14 react中更新UI的方式都有哪些？
+   A  ReactDOM.render()
+   B  this.setState()
+   C  使用redux更改数据
+   D  click	   ABC
+15 在react中关于keys的描述正确的是？
+   A  键(Keys) 帮助 React 标识哪个项被修改、添加或者移除了。
+   B  数组中的每一个元素都应该有一个唯一不变的键(Keys)来标识
+   C  keys 在同辈元素中必须是唯一的
+   D  keys对提高性能没作用	  ABC
+16 react中的事件都需要addEventListener监听 ？ B
+17 无论是使用函数或是类来声明一个组件，它决不能修改它自己的props   A
+18 组件的返回值只能有一个根元素   A
+19 react有更新时一定会更新整个dom树   B
+20 在react中元素其实不是真实的dom元素	 A
+21 react中ref属性的属性值可以是_________也可以是_____________      
+    字符串，函数
+22 在react中父子组件直接的通信主要使用的是___________ 
+     props
+23 react中组件组合可以在组件中通过__________接受到插入的子组件 
+    this.props.children
+24 在react中结构使用_____________来编写
+    jsx
+25 jsx中元素的class类名使用_____________代替 
+   className
+26 refs的返回值是什么类型的
+   A  对象
+   B  数组
+   C  字符串
+   D  布尔	  A
+27 在react生命周期中一共有几个阶段  
+   A  1
+   B  2
+   C  3
+   D  4	 C
+28 "在react中将redux和react组件关联起来需要使用下面那个模块
+   A  react-dom
+   B  react-redux
+   C  redux-react
+   D  react-router	 B
+29 在react中不能有state的组件是如何创建的 
+   A  函数式组件
+   B  class类组件
+   C  面向对象组件
+   D  业务组件   A
+30 在react中如何给组件传递动态的属性值 
+   A  使用:	
+   B  使用v-bind
+   C  使用{}	
+   D  使用{{}}   C
+31 在react中针对于dom渲染的优化是使用了什么技术
+   A  合成事件	
+   B  单页面路由	
+   C  虚拟dom
+   D  组件化开发 C
+32 react中路由配置使用
+   A  router	
+   B  link	
+   C  routes	
+   D  route			D
+33 react路由中通过那个组件可以控制不匹配多个路由规则？
+   A  Switch	
+   B  Route	
+   C  BrowserRouter
+   D  Redirect   A
+34 下面的那些操作可以获取到dom的是
+   A  findDOMNode()	
+   B  refs	
+   C  bind	
+   D  PropTypes	 AB
+35 下面那些组件属于react-router-dom 的 
+   A  BrowserRouter	
+   B  Link	
+   C  Redirect	
+   D  Router	  ABC
+36 在react受控组件中，是通过value控制的textarea的值的  A
+37 jsx和html一样   B
+38 create-react-app是使用webpack打包的    A
+39 react非受控组件中使用defaultValue控制属性的默认值   A
+40 react没有计算属性	  A

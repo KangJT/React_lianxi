@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+    //用res获取节点
+    let timer;
+    class Index extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+                content_1:'第一个子级',
+                content_2:'第二个子级'
+            }
+        }
+        changeMsg(){
+           timer=setTimeout(() => {
+               this.setState({
+                content_1:"修改后的第一个子级"
+               })
+           }, 3000);
+        } 
+        render(){
+            let {content_1,content_2}=this.state
+            !timer && this.changeMsg();
+            return <div>
+                        <Content content={content_1} />
+                        <Content content={content_2}/>
+                   </div>
+        }
+    }
+    class Content extends React.Component{
+        shouldComponentUpdate(nextProps,nextState){
+          return nextProps.content!==this.props.content
+        }
+        render(){
+         let {content}=this.props
+         console.log('props',content)
+          return <div>{content}</div>
+        }
+    }
+    ReactDOM.render(
+        <Index />,
+        document.getElementById('box')
+    )
+    </script>
+</body>
+</html>

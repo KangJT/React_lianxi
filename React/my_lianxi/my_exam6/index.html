@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     /* .dis{
+         display: none;
+     } */
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+      let {Component}=React
+      class Index extends Component{
+          constructor(props){
+            super(props)
+            this.state={
+                name:"选择你要的数据",
+                list:['第一条数据','第二条数据','第三条数据','第四条数据'],
+                falge:true
+            }
+          }
+          onMousers=()=>{
+              console.log(1)
+          }
+          render(){
+              let {name,list,falge}=this.state
+              return <div>
+                         <p onMousemove={()=>{
+                             this.onMousers()
+                         }}>{name}</p>
+                         <List list={list}/>
+                     </div>
+          }
+      }
+      class List extends Component{
+         render(){
+             let {list}=this.props
+           return <ul className={'dis'}>
+                    {list.map((v,i)=><li key={i}>{v}</li>)}
+                  </ul>
+         }
+      }
+      ReactDOM.render(
+          <Index/>,
+          document.getElementById('box')
+      )
+    </script>
+</body>
+</html>

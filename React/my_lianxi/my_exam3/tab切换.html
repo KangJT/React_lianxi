@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title><script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <style>
+    .bg{
+        color:white;
+        background:chartreuse;
+    }
+    </style>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+    class Index extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+                list:{
+                    '自治区地级市':['包头','乌海','赤峰','通辽','鄂尔多斯','呼伦贝尔','巴彦淖尔'],
+                    '哈尔滨市':['大庆','齐齐哈尔','佳木斯','鸡西','鹤岗','双鸭山','牡丹江','伊春','七台河','黑河','绥化'],
+                    '长春市':['吉林','四平','辽源','通化','白山','松原','白城','辽宁省']  
+                },
+                defaultIndex:0
+            }
+        }
+        // changname = () =>{
+        //     let {mag} = this.state;
+        //     this.setState({
+        //         mag:mag + "很漂亮"
+        //     })
+        // }
+        // changcity = (index) =>{
+        //     let {list} = this.state;
+        //     list[index].name = list[index].name + "环境很好"
+        //     this.setState({
+        //         list
+        //     })
+        // }
+        render(){
+            let {list,defaultIndex} = this.state;
+            return  <div>
+                        {Object.keys(list).map((v,i) => <span key = {i} className = {defaultIndex === i ? "bg" : ""} onClick = {() => {
+                           this.setState({
+                                defaultIndex:i
+                            })
+                        }}>{v}</span>)}
+                        <BottomContent  content = {list[Object.keys(list)[defaultIndex]]}/>
+                    </div>
+        }
+    }
+    class BottomContent extends React.Component{
+        render(){
+            console.log(this.props.content)
+            let {content} = this.props;
+           console.log(this.state)
+           return <div>
+                        {content.map((v,i) => <div key = {i}>{v}</div>)}
+                    </div>
+        }
+    }
+
+    ReactDOM.render(
+        <Index />,
+        document.getElementById("box")
+    )
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

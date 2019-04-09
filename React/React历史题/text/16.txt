@@ -1,0 +1,150 @@
+1  组件被销毁时会执行____________生命周期函数 
+    componentWillUnmount
+2  当组件中的______发生改变的时候，dom会重新出现变化
+     state
+3  对于一个组件来讲，__________生命周期方法是唯一一个必需的方法
+    render
+4  render方法中会创建一个___________用来表示组件的输出
+    虚拟dom
+5  redux中Reducer接受2个参数分别是________和_____________  
+    state, action
+6  以下选项中对于受控组件说法正确的是？
+   A  你应该始终传一个value属性进去，并且注册一个onChange的辅助方法来让组件变得可变
+   B  一个受控的组件自己维护自己的state
+   C  没有value属性	
+   D  没办法更改value	    A
+7  react中在jsx上绑定的事件处理使用的是 
+   A  原生浏览器事件
+   B  react合成事件
+   C  dom事件
+   D  表单事件   B
+8  只能存在于组件内部的状态在react中称为
+   A  state	
+   B  props	
+   C  store	
+   D  window   A
+9  "在react生命周期中那个生命周期是props发生变化才会执行的
+   A  shouldComponentUpdate
+   B  componentWillMount
+   C  componentWillUnmount
+   D  componentWillReceiveProps   D
+10 react组件如果不需要生命周期，不需要state可以使用那种方式创建组件 
+   A  class类	
+   B  函数
+   C  creatClass
+   D  继承	  B
+11 下面那种组件的创建不能使用ref
+   A  class类组件
+   B  函数组件
+   C  业务组件
+   D  受控组件  B
+12 下面提供的方法中那个可以用于获取组件实例对应的dom
+   A  dispatch()
+   B  findeDOMNode()
+   C  render()
+   D  setState(type)	  B
+13 redux中createStore的第一个参数是？
+   A  reducer
+   B  state
+   C  actions
+   D  store	 A
+14 下面那些react生命周期函数是属于存在期
+   A  shouldComponentUpdate
+   B  componentWillMount
+   C  componentWillUnmount
+   D  componentWillReceiveProps   ABD
+15 redux的特点有哪些
+   A  单一数据源
+   B  State 是只读的
+   C  使用reducer可以返回新的state
+   D  通过dispatch(action)触发reducer  ABCD
+16 在react中函数创建的组件没有state    A
+17 在react中函数创建的组件可以接受到props   A
+18 react中ref的值如果是函数的话需要在生命周期中手动触发改变    B
+19 redux中通过redux-thunk可以实现异步action   A
+20 redux中Provider是一个react组件，作用就是为了讲store传递到下面的子组件中   A
+21 redux中connect的作用是______ 
+   连接React组件与 Redux store。
+22 Ant Design是由 _____ 框架实现的
+     react
+23 async函数返回_____
+     Promise对象
+24 箭头函数内的this对象指向____	
+     定义时所在的对象，而不是使用时所在的对象
+25 combineReducers接受一个_______类型的数据作为参数
+    Object
+26 jsx语法描述正确的是？
+   A  一个第三方包
+   B  HTML和JavaScript混写的语法，当遇到<，JSX就当HTML解析，遇到{就当JavaScript解析
+   C  一个框架
+   D  js方法   B
+27 react要将react元素渲染成dom的话需要通过那个模块？
+   A  react-dom
+   B  render
+   C  components
+   D  component	 A
+28 以下给p标签添加自定义属性正确的是？
+   A  "ReactDOM.render(
+　　<div>
+　　　　<p data-myattribute = ""somevalue"">hello world!</p>
+　　</div> ,
+　　document.getElementById('example')
+ )"	
+   B  "ReactDOM.render(
+　　<div>
+　　　　<p myattribute = ""somevalue"">hello world!</p>
+　　</div> ,
+　　document.getElementById('example')
+ )"	
+   C  "ReactDOM.render(
+　　<div>
+　　　　<p style = ""somevalue"">hello world!</p>
+　　</div> ,
+　　document.getElementById('example')
+ )"
+   D  "ReactDOM.render(
+　　<div>
+　　　　<p data = ""somevalue"">hello world!</p>
+　　</div> ,
+　　document.getElementById('example')
+ )" A
+29 在react中的哪个生命周期发出 AJAX 请求最合适?
+   A  componentDidMount 
+   B  componentWillMount 
+   C  shouldComponentUpdate 
+   D  constructor	 A
+30 关于容器组件说法错误的是？
+   A  负责管理数据和业务逻辑，不负责 UI 的呈现
+   B  带有内部状态
+   C  使用 Redux 的 API
+   D  只负责呈现UI，不负责数据逻辑也业务	 D
+31 展示组件描述错误的是？
+   A  只负责 UI 的呈现，不带有任何业务逻辑
+   B  没有状态（即不使用this.state这个变量）
+   C  所有数据都由参数（this.props）提供
+   D  使用 Redux 的 API    D
+32 关于jsx的特性描述错误的是？
+   A  JSX 允许在模板中插入数组，数组会自动展开所有成员
+   B  React 推荐使用内联样式
+   C  jsx语法中可以使用表达式
+   D  jsx语法中的注释写在小括号中  D
+33 Route组件上那个属性保证路由地址的全匹配？
+   A  exact	
+   B  path	
+   C  component
+   D  key	 A
+34 React的优点有哪些？
+   A  jsx语法
+   B  组件化系统
+   C  Virtual DOM
+   D  diff算法  ABCD
+35 JSX优点？
+   A  JSX执行更快，因为它对编译js代码进行了优化
+   B  它是类型安全的，在编译过程中就能发现错误
+   C  使用jsx编译模板更加简洁快速。
+   D  jsx语法中不能使用表达式	 ABC
+36 mobile.ant.design适合做移动端项目，ant.design适合做pc端项目  A
+37 高阶组件不是纯函数	  B
+38 react中的jsx语法是javascript和xml的混合   A
+39 在jsx语法中表达式使用{}表示	 A
+40 Switch组件保证路由规则只会有一个被匹配    A

@@ -1,0 +1,20 @@
+在react中组件之间的数据通信有那几种模式__________________________________________________________________    父子通信，子父通信，同级通信，跨级通信
+父子组件常用的通信手段是使用_________,  	props
+如果组件之间嵌套的比较深缩短父组件到子组件的属性传递路径可以使用______________    context
+react中同级组件组件通信使用自定义事件，自定义事件来源与__________________模块   	events
+context的值使用______________改变,     使用setState改变state的时候会自动重新获取
+父子组件的通信最优的方案是使用, 知     props	自定义事件	回调函数	state			A
+子父组件的通信最常用的解决方案是使用   	props	自定义事件	回调函数	state	C
+子组件使用父组件的数据是属于那种通信方式，  	父子通信	子父通信	跨级通信	同级通信			A
+父组件使用子组件的数据是属于那种通信方式， 	父子通信	子父通信	跨级通信	同级通信			B
+react在数据传递过程中是使用的那种数据流的传递方式 	双向数据绑定	单项数据流	共享数据流	封闭数据流   B
+react中跨级通信最优的方案是： 	props逐层传递	context	回调函数	自定义事件    B
+父组件内定义play方法，子组件如何将数据传给父组件	this.state.play	this.props.play	play	this.play			B
+以下描述错误的是？	componentWillReceiveProps属于存在期	shouldComponentUpdate属于存在期	componentWillUnmount属于存在期				C
+下面那些方案可以实现react子父组件通信    props回调函数	context	refs	自定义事件   ACD
+下面那些方法可以实现react组件跨级通信  props	回调函数	自定义事件	context	 ACD
+react中可以通过props实现跨级组件通信   	A
+react中使用contenxt实现跨级组件通信    	A
+react中利用回调可以实现子父组件的通信    A
+componentWillUnmount在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等	A
+子向父传值可以使用自定义事件	A

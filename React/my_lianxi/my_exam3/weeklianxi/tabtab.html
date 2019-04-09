@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .active{
+        color: brown;
+        font-size: 30px;
+    }</style>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+       let {Component} =React;
+       class Index extends Component{
+           constructor(props){
+               super(props);
+               this.state={
+                   list:{
+                       "小的轿车":['我的',"你的","他的"],
+                       "小的轿车2":['我的2',"你的2","他的2"],
+                       "小的轿车3":['我的3',"你的3","他的3"],
+                   },
+                   name:"折叠",
+                   falge:true,
+                   defaultIndex:0
+            }
+         }
+         render(){
+             let {list,defaultIndex,name,falge}=this.state
+             console.log(list,defaultIndex)
+             return <div>
+                        {Object.keys(list).map((v,i)=><p 
+                        key={i}
+                        className={defaultIndex === i ? "active" : "" }
+                        onClick={()=>{
+                            this.setState({
+                                defaultIndex:i
+                            })
+                        }}
+                        >{v}</p>)}
+                        <p onClick={()=>{
+                          this.setState({
+                              falge:!falge
+                          })
+                        }}>{name}</p>
+                        {falge ? <Content contents={list[Object.keys(list)[defaultIndex]]}/>:""}
+                    </div>
+         }
+       }
+       class Content extends Component{
+           render(){
+             let {contents}=this.props;
+             console.log(contents)
+               return <div>
+                       {contents.map((v,i)=><span key={i}>{v}</span>)}
+               </div>
+           }
+       }
+       ReactDOM.render(
+           <Index/>,
+           document.getElementById('box')
+       )
+    </script>
+</body>
+</html>

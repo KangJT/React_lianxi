@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .active{
+        color: blueviolet;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script> 
+    <script type="text/babel">
+       let {Component}=React
+       class Index extends Component{
+          constructor (props){
+              super(props);
+              this.state={
+                  list:{
+                    "小城市":['吕梁','中阳','离石'],
+                    "小城市2":['吕梁2','中阳','离石'],
+                    "小城市3":['吕梁3','中阳','离石']
+                  },
+                  defauleIndex:0
+               }
+          }
+          render(){
+              let {list}=this.state
+              return   <div>
+                            {Object.keys(list).map((v,i)=> <span 
+                                key={i} 
+                                className={defauleIndex===i?'avtive':''}
+                                onClick={()=>{
+                                    this.setState({
+                                        defauleIndex:i
+                                    })
+                                }}>{v}</span>)}
+                            <Content contents={list[Object.keys(list)[defauleIndex]]} />
+                       </div>
+              
+          }
+       }
+       class Content extends Component{
+            render(){
+            let {contents}=this.props; 
+            return <div>
+                      {contents.map((v,i) => <div key = {i}>{v}</div>)}
+                   </div>
+           }
+       }
+       ReactDOM.render(
+        <Index />,
+        document.getElementById('box')
+       )
+    </script>
+</body>
+</html>

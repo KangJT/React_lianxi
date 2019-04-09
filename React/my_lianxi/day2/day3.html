@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+        let {
+           Component
+        }=React;
+        class Index extends Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    msg:'生命周期'
+                }
+            }
+            // componentWillMount(){
+            //     console.log('componentWillMount')
+            // }
+            // changeMsg(){
+            //     timer =setTimeout(() => {
+            //         this.setState({
+            //             msg:"修改状态"
+            //         })
+            //     }, 3000);
+            // }
+            // shouldComponentUpdata(nextProps,nextState){
+            //     console.log(nextProps,'shouldComponentUpdata',nextState)
+            //     return true
+            // }
+            // componentWillUpdata(nextProps,nextState){
+            //     console.log('componentWillUpdata')
+            // }
+            componentDidUpdata(prevProps,prevState,number){
+                //组建重新渲染
+                console.log(nextProps,'componentDidUpdata',prevState,number);
+            }
+            static getDerivedStateFromProps(nextProps,prevState){
+                console.log(nextProps,'getDerivedStateFromProps',prevState)
+                if(nextProps.content!==prevState.content){
+                    return {
+                        content:nextProps.content
+                    }
+                }else{
+                    return null
+                }
+            }
+            getSnapshotBeforeUpdate(prevProps,prevState){
+                console.log('getSnapshotBeforeUpdata')
+                return 1;
+            }
+            render(){
+                console.log('render');
+                let {
+                    msg
+                }=this.state;
+                !timer && this.changeMsg()
+                return 
+                  <div>{msg}</div>     
+            }
+        }
+        ReactDOM.render(
+            <Index />,
+            document.getElementById('box')
+        )
+            
+        
+    </script>
+</body>
+</html>

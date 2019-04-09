@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type="text/babel">
+     let {Component} =React;
+     let timer;
+     class Index extends Component{
+       constructor(props){
+           super(props);
+           this.state={
+              childMsg:"传递子元素内容",
+              flag:true
+           }
+       }
+    //    shouldComponentUpdata(nextProps,nextState){//sate改变后  存在期的第一个
+           
+    //        return  true
+    //        //返回值必有且是布尔值
+    //    }
+       changeMsg(){
+           timer=setTimeout(() => {
+             this.setState({
+               childMsg:"修改的内容"
+             })
+           }, 3000);
+           setTimeout(()=>{
+               this.setState(()=>{
+                   return {
+                       flag:false
+                   }
+               })
+           },5000)
+       }
+       render(){
+           let {
+               childMsg,flag
+           }=this.state
+           !timer && this.changeMsg()
+           return <div>
+                  {
+                   flag  && <Detail content={childMsg}/>
+                  }
+                  </div>
+       }
+     }
+     class Detail extends Component{
+        //实例
+       componentWillMount(){
+           console.log('componentWillMount')
+       }
+       componentDidMount(){
+           console.log('componentDidMount')
+       }
+       //以下是存在期更改的
+       componentWillReceiveProps(nextProps){//props 更改的时候触发
+          console.log('componentWillReceiveProps',nextProps  )
+       }
+       shouldComponentUpdate(nextProps,nextState){//props state 修够都会触发
+           console.log(nextProps,'shouldComponentUpdate',nextState);
+           return true
+       }
+       componentWillUpdate(nextProps,nextState){//组件重新渲染之间
+           console.log(nextProps,'componentWillUpdate',nextState)
+       }
+       componentDidUpdate(prevProps,prevState){//组建重新渲染完成
+           console.log(prevProps,'componentDidUpdate',prevState)
+       }
+       render(){
+           let {
+               content
+           }=this.props;
+           console.log('render');
+           return <div>{content}</div>
+       }
+       componentWillUnmount(){//组件销毁
+        console.log('componentWillUnmount')
+       }
+     }
+     ReactDOM.render(
+         <Index/>,
+         document.getElementById('box')
+     )
+     </script>
+</body>
+</html>

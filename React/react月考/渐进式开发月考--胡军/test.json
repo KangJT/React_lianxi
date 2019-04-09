@@ -1,0 +1,91 @@
+ [{
+	"id": "1", // 问题id
+	"nickname": "u1532064524790",// 用户名
+  "look": 0, // 浏览量
+  "message": 0, // 留言数字
+	"ctime": "2018-07-16 11:49:09",// 问题时间
+	"address": "北京市", //  地址
+	"question": "牛刀小店怎么使用", // 问题内容
+	"bankuai": "小程序开发" // 分属的板块，筛选功能需要
+},
+{
+	"id": "2",
+	"nickname": "u17820645241290",
+  "look": 60,
+  "message": 2,
+	"ctime": "2018-07-18 11:49:09",
+	"address": "北京市",
+	"question": "牛刀中如何使用组件",
+	"bankuai": "组件使用"
+},
+{
+	"id": "3",
+	"nickname": "u32155241290",
+  "look": 50,
+  "message": 20,
+	"ctime": "2018-07-19 11:49:09",
+	"address": "北京市",
+	"question": "找回密码",
+	"bankuai": "平台问题"
+},
+{
+	"id": "4",
+	"nickname": "u45550645241290",
+  "look": 34,
+  "message": 12,
+	"ctime": "2018-07-18 11:49:09",
+	"address": "北京市",
+	"question": "appid是否必须的1111",
+	"bankuai": "开发交流"
+},
+{
+	"id": "5",
+	"nickname": "u6666665241290",
+  "look": 24,
+  "message": 22,
+	"ctime": "2018-07-20 11:49:09",
+	"address": "北京市",
+	"question": "appid是否必须的2222",
+	"bankuai": "开发交流"
+},
+{
+	"id": "6",
+	"nickname": "u77775241290",
+  "look": 14,
+  "message": 32,
+	"ctime": "2018-07-21 11:49:09",
+	"address": "北京市",
+	"question": "appid是否必须的3333",
+	"bankuai": "开发交流"
+},
+{
+	"id": "7",
+	"nickname": "u67774524790",
+  "look": 10,
+  "message": 10,
+	"ctime": "2018-08-16 11:49:09",
+	"address": "北京市",
+	"question": "牛刀小店怎么使用222222",
+	"bankuai": "小程序开发"
+},
+{
+	"id": "8",
+	"nickname": "u88888241290",
+  "look": 80,
+  "message": 82,
+	"ctime": "2018-08-18 11:49:09",
+	"address": "北京市",
+	"question": "牛刀中如何使用组件22222",
+	"bankuai": "组件使用"
+},
+{
+	"id": "9",
+	"nickname": "u99991290",
+  "look": 52,
+  "message": 22,
+	"ctime": "2018-09-19 11:49:09",
+	"address": "北京市",
+	"question": "找回密码22222222",
+	"bankuai": "平台问题"
+}
+]

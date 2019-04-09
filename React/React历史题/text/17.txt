@@ -1,0 +1,139 @@
+1  mockjs中的占位符是_____
+    @
+2  React 组件通过_____方法创建虚拟dom并且将其返回	
+   render()
+3  当一个组件的____变化，组件将重新调用 render() 方法更新视图	
+    数据/状态/state/props
+4  在react中通过_________可以实现vue中v-model的效果 
+    受控组件
+5  /^1(3|4|5|7|8|9)\d{9}$/这个正则表达式的作用是________
+    验证手机号
+6  componentWillUnmount生命周期的作用正确的是？
+   A  在渲染前调用
+   B  在组件完成更新后立即调用
+   C 组件从 DOM 中移除的时候立刻被调用
+   D  js方法在第一次渲染后调用，只在客户端 C
+7  react中一般使用____做props的验证？
+   A  propTypes
+   B  props
+   C  propsType
+   D  props-type	 A
+8  下面那个数组的操作方法不会改变原来的数组值
+   A  map
+   B  push
+   C  pop
+   D  shift	 A
+9  stopPropagation() 方法的作用是？
+   A  stopPropagation就是阻止目标元素的事件冒泡到父级元素
+   B  作用是取消一个目标元素的默认行为
+   C  派发事件
+   D  禁止拖拽   A
+10 webpack中resolve对象中的alias的作用是
+   A  对引用的文件设置别名
+   B  对文件引用
+   C  对解析文件名
+   D  解析文件   A
+11 setState回调函数会在什么时候触发？
+   A  在setState设置成功，且组件重新渲染后调用
+   B  在setState设置成功，且组件重新渲染前调用
+   C  在setState设置前，且组件重新渲染后调用
+   D  在setState设置前，且组件重新渲染前调用			A
+12 let toString = Object.prototype.toString; let objectType = toString.call({'aa':'aa'});  console.log(objectType) 的结果是
+   A  [Object Object]'
+   B  [object Object]'
+   C  [object object]'
+   D  [object Array]'	 B
+13 <img onClick={this._onHide.bind(this)} className="close" />中的this值得是
+   A  img元素
+   B  当前组件实例
+   C  window
+   D  undefined	 B
+14 以下属于event属性和方法的是哪些？
+   A  target
+   B  stopPropagation()
+   C  type
+   D  preventDefault()     ABCD
+15 下面哪些事件不会触发冒泡
+   A  change
+   B  submit
+   C  click
+   D  input	  ABD
+16 React事件系统都包括事件注册，事件存储和事件执行三大部分    A
+17 在组件内部通过this.state方法修改组件状态   B
+18 shouldComponentUpdate返回false，props发生改变，视图会重新渲染   B
+19 React 是 google 推出的一个用来构建用户界面的 JavaScript 库	   A
+20 class组件是继承自Component类创建的	  A
+21 input元素的值由react状态控制，并且当input元素输入发生变化同步state的值，在react中称为___________________ 
+    受控组件
+22 在es6里面继承是通过____________关键字实现的
+     extends
+23 react中class创建的组件是通过继承___________类创建的
+    React.Component
+24 使用_________方式创建的组件没有组件实例 
+    函数式
+25 redux中Reducer接受_________个参数，分别是__________  
+    2,state,actions
+26 react组件中用来处理数据的组件称为
+   A  展示组件
+   B  受控组件
+   C  高阶组件
+   D  容器组件  D
+27 react中组件元素和dom元素区分通过 
+   A  组件首字母大写，dom元素小写
+   B  组件首字母小写，dom元素大写
+   C  没有区别
+   D  组件使用(-)分割，dom元素小写	 A
+28 "react组件中如何设置组件默认的props值
+   A  defaultProps
+   B  Defaultprops
+   C  static defaultProps
+  D  static defaultprops   C
+29 react如何获取嵌套的子组件 
+   A  state.child
+   B  props.child
+   C  state.children
+   D  props.children	 D
+30 ref不能作用在下面那种组件上作引用
+   A  class类组件
+   B   函数组件
+   C  业务组件
+   D  受控组件	 B
+31 react合成事件中如何阻止事件默认行为 
+   A  event.preventDefault
+   B  event.target
+   C  event.stop
+   D  event.prevent			A
+32 withRouter高阶组件的作用是干什么？
+   A  将路由相关属性扩展到当前组件的state上
+   B  将路由相关属性扩展到当前组件的props上
+   C  将路由相关方法扩展到当前组件的props上
+   D  将路由相关方法扩展到当前组件的state上   B
+33 "在组件的state上定义了name='刘于'， 那么在componentDidMount () {
+   this.setState({
+       name: '张帅'
+   })
+   console.log(this.state.name)
+}
+
+render () {
+  console.log(this.state.name)
+}  中两次console.log的结果是什么"
+   A  张帅，刘于
+   B  刘于，张帅
+   C  刘于，刘于
+   D  张帅，张帅   B
+34 在react中可以使用下面那些方式添加事件处理
+   A  dom原生事件
+   B  合成事件
+   C  v-on绑定
+   D  props绑定	 AB
+35 在jsx表达式中可以使用下面哪些方法做判断处理
+   A  v-if
+   B  &&运算符
+   C  ||运算符
+   D  三元运算符	 BCD
+36 mobile.ant.design适合做移动端项目，ant.design适合做pc端项目 A
+37 react生命周期一共有6个   B
+38 在react中子组件内部可以直接修改props   	B
+39 render生命周期中可以修改props或者state   B
+40 在react中通过ref可以获取到dom元素  A
